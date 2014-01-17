@@ -5,7 +5,6 @@ import java.util.Observer;
 
 public class BadGuy implements Observer {
 	
-	//Defeated defeated;
 	private String name;
 	
 	public BadGuy(Observable eye, String name) {
