@@ -14,6 +14,7 @@ public class BadGuy implements Observer {
 	
 	public void defeat(Observable eye) {
 		eye.deleteObserver(this);
+		System.out.println(this.name + " has been defeated.");
 	}// end defeat
 
 	@Override
