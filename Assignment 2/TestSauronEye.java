@@ -1,5 +1,11 @@
 package Assign_2;
 
+/*
+ * Riley Englin
+ * Paul Shovelier
+ * Eric Nielsen
+ */
+
 public class TestSauronEye {
 	
 	public static void main(String[] args) {
