@@ -9,8 +9,4 @@ public class BadCharacter extends Character {
 	public BadCharacter(String name) {
 		super.setName(name);
 	}
-	
-	public void attack() {
-		//Attack interface goes here
-	}
 }

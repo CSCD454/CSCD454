@@ -11,8 +11,4 @@ public class GoodCharacter extends Character {
 	public void attack() {
 		//Attack interface goes here
 	}
-	
-	public void infectionChance() {
-		//TODO: not sure if this should be a method or just the chance of infection
-	}
 }

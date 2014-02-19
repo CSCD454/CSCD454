@@ -1,6 +1,6 @@
 package GroupProject;
 
-public abstract class CharacterRace extends Character {
+public abstract class CharacterClass extends Character {
 
 	public abstract int getHP();
 	
@@ -13,4 +13,6 @@ public abstract class CharacterRace extends Character {
 	public abstract String getName();
 	
 	public abstract int getInfection();
+	
+	public abstract void attack();
 }

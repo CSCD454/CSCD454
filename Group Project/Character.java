@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 public abstract class Character {
 	
-	protected String name = "null";
-	private int hp = 100;
+	private String name = "null";
+	protected String className = "Classless";
+	private int hp = 100, init = 1;
 	private ArrayList inventory = new ArrayList(10);	//Need to define arraylist type later
 	
 	public Character() {
 		
+	}
+	
+	public String getClassName() {
+		return this.className;
 	}
 	
 	public void setName(String name) {
@@ -24,9 +29,11 @@ public abstract class Character {
 		return this.hp;
 	}
 	
+	public int getInit() {
+		return this.init;
+	}
+	
 	public ArrayList getInventory () {	//Define arraylist here too
 		return this.inventory;
 	}
-	
-	abstract void attack();
 }
