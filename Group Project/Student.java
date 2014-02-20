@@ -29,9 +29,4 @@ public class Student extends CharacterClass {
 	public int getInfection() {
 		return 0;	//Not exactly sure what to do here.
 	}
-	
-	@Override
-	public void attack() {
-		//TODO: put attack interface here.
-	}
 }

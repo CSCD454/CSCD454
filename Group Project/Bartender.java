@@ -5,9 +5,10 @@ public class Bartender extends CharacterClass {
 	Character character;
 	private int hp = 1, init = 1, infection = -1;
 	
-	public Bartender(Character character) {
+	public Bartender(Character character, AttackBehavior weapon) {
 		this.character = character;
 		super.className = "Bartender";
+		setWeapon(weapon);
 	}
 	
 	@Override
@@ -32,10 +33,5 @@ public class Bartender extends CharacterClass {
 	
 	public String getClassName() {
 		return this.className;
-	}
-	
-	@Override
-	public void attack() {
-		//TODO: put attack interface here.
 	}
 }

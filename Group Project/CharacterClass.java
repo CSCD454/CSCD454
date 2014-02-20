@@ -13,6 +13,4 @@ public abstract class CharacterClass extends Character {
 	public abstract String getName();
 	
 	public abstract int getInfection();
-	
-	public abstract void attack();
 }

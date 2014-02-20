@@ -33,9 +33,4 @@ public class CouchPotatoe extends CharacterClass {
 	public String getClassName() {
 		return this.className;
 	}
-	
-	@Override
-	public void attack() {
-		//TODO: put attack interface here.
-	}
 }

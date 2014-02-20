@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Character {
 	
+	AttackBehavior weapon;
 	private String name = "null";
 	protected String className = "Classless";
 	private int hp = 100, init = 1;
@@ -35,5 +36,13 @@ public abstract class Character {
 	
 	public ArrayList getInventory () {	//Define arraylist here too
 		return this.inventory;
+	}
+	
+	public void setWeapon(AttackBehavior weapon) {
+		this.weapon = weapon;
+	}
+	
+	public void attack() {
+		this.weapon.attack();
 	}
 }
