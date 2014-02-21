@@ -1,5 +1,7 @@
 package GroupProject;
 
+import java.util.ArrayList;
+
 public class Tester {
 
 	public static void main(String[] args) {
@@ -8,14 +10,20 @@ public class Tester {
 		Character monster1 = new BadCharacter("Moe");
 		
 		hero1 = new Male(hero1);
-		monster1 = new Child(monster1);
 		
 		AttackBehavior weapon = new AttackBat();
 		
 		hero1 = new Bartender(hero1, weapon);
-		monster1 = new Redneck(monster1);
 		
-		hero1.attack();
+		ArrayList<Character> hero = new ArrayList<Character>();
+		
+		hero.add(hero1);
+		
+		Encounter encounter = new Encounter(hero);
+		
+		encounter.makeMonster(2);
+		
+		//hero1.attack();
 		
 		
 	}
