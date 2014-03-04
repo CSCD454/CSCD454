@@ -64,7 +64,7 @@ public class InitializeState implements GameState {
 		         System.out.println("IO error trying to read your name!");
 		         System.exit(1);
 		    }
-		    CharFactory.GoodCharacterFactory heroFactory = new CharFactory.GoodCharacterFactory();
+		    CharFactory.GoodCharacterFactory heroFactory = new CharFactory.GoodCharacterFactory(input);
 		    
 		    heroList.add(heroFactory.create());
 	    }

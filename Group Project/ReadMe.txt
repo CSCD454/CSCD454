@@ -1,0 +1,1 @@
+The name.txt file needs to go in the same folder as the src folder.

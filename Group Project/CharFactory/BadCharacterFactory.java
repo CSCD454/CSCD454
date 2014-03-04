@@ -1,14 +1,23 @@
 package CharFactory;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
 public class BadCharacterFactory extends CharacterFactory{
 
 	Character character;
 	private int rClass, rRace, rWeapon;
+	private ArrayList<String> names = new ArrayList<String>();
+	private Random rg = new Random();
 	
 	public BadCharacterFactory() {
 		randClass();
 		randRace();
 		//randWeapon();
+		fillNames();
 	}
 	
 	protected void randClass() {
@@ -26,9 +35,8 @@ public class BadCharacterFactory extends CharacterFactory{
 	*/
 	
 	public Character create() {
-		//TODO: make a rand name generator.  Also might need to nest badcharacter inside race to see if male or female first
-		// so can have appropriate name.
-		character = new BadCharacter("Bad Billy Bob");
+		
+		character = new BadCharacter(randName());
 		
 		character = race(character);
 		character = makeClass(character);
@@ -84,5 +92,29 @@ public class BadCharacterFactory extends CharacterFactory{
 		}
 		
 		return classTemp;
+	}
+
+	private Scanner readFile() throws FileNotFoundException {
+		return new Scanner(new File("name.txt"));
+	}
+	
+	private void fillNames() {
+		Scanner reader = null;
+		
+		try {
+			reader = readFile();
+		}
+		catch(FileNotFoundException e) {
+			System.err.println("Couldn't open the file.");
+		}
+		
+		while(reader.hasNextLine()) {
+			names.add(reader.nextLine());
+		}
+	}
+
+	private String randName() {
+		int index = this.rg.nextInt(this.names.size());
+		return this.names.get(index);
 	}
 }

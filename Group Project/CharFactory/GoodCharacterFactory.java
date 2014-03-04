@@ -3,9 +3,11 @@ package CharFactory;
 public class GoodCharacterFactory extends CharacterFactory {
 
 	Character character;
+	private String name;
 	private int rClass, rRace, rWeapon;
 	
-	public GoodCharacterFactory() {
+	public GoodCharacterFactory(String name) {
+		this.name = name;
 		randClass();
 		randRace();
 		//randWeapon();
@@ -29,7 +31,7 @@ public class GoodCharacterFactory extends CharacterFactory {
 		
 		//TODO: make a rand name generator.  Also might need to nest badcharacter inside race to see if male or female first
 		// so can have appropriate name.
-		character = new GoodCharacter("Good Billy Bob");
+		character = new GoodCharacter(name);
 		
 		character = race(character);
 		character = makeClass(character);
