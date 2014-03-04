@@ -1,8 +1,5 @@
 package GroupProject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -17,7 +14,7 @@ public class EncounterState implements GameState {
 		System.out.println("Encounter State");
 	}
 	
-	public ArrayList<Character> Initialize()
+	public ArrayList<CharFactory.Character> Initialize()
 	{
 		return null;
 	}
@@ -25,18 +22,18 @@ public class EncounterState implements GameState {
 	public void Move()
 	{ }
 	
-	public ArrayList<Character> BuildMonster()
+	public ArrayList<CharFactory.Character> BuildMonster()
 	{ 
 		return null;
 	}
 	
-	public void Encounter(ArrayList<Character> battleList)
+	public void Encounter(ArrayList<CharFactory.Character> battleList)
 	{	
 		System.out.println("************FIGHT********");
 		
-		Collections.sort(battleList, new Comparator<Character>() {
+		Collections.sort(battleList, new Comparator<CharFactory.Character>() {
 			@Override
-			public int compare(Character character1, Character character2) {
+			public int compare(CharFactory.Character character1, CharFactory.Character character2) {
 				if(character1.getInit() > character2.getInit()) {
 					return -1;
 				}
@@ -60,7 +57,7 @@ public class EncounterState implements GameState {
 		//else character state is dead, game over
 	}
 	
-	private void fight(ArrayList<Character> fightList) {
+	private void fight(ArrayList<CharFactory.Character> fightList) {
 		boolean alive = true;
 		
 		while(alive) {

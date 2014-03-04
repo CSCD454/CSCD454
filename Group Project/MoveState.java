@@ -12,7 +12,7 @@ public class MoveState implements GameState
 		System.out.println("Move map");
 	}
 	
-	public ArrayList<Character> Initialize()
+	public ArrayList<CharFactory.Character> Initialize()
 	{
 		return null;
 	}
@@ -23,12 +23,12 @@ public class MoveState implements GameState
 		game.setState(game.getBuildMonsterState());
 	}
 	
-	public ArrayList<Character> BuildMonster()
+	public ArrayList<CharFactory.Character> BuildMonster()
 	{
 		return null;
 	}
 	
-	public void Encounter(ArrayList<Character> hero)
+	public void Encounter(ArrayList<CharFactory.Character> hero)
 	{ }
 	
 	public void GameOver()

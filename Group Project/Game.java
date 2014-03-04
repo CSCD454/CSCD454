@@ -10,7 +10,7 @@ public class Game {
 	GameState encounter;
 	GameState zombie;
 	GameState overgame;
-	ArrayList<Character> hero;
+	ArrayList<CharFactory.Character> hero;
 	
 	GameState state = menu;
 	
@@ -29,7 +29,7 @@ public class Game {
 	{
 		this.state = state;
 	}
-	public ArrayList<Character> Initialize()
+	public ArrayList<CharFactory.Character> Initialize()
 	{
 		hero = state.Initialize();
 		return hero;
@@ -39,13 +39,13 @@ public class Game {
 		state.Move();
 	}
 	
-	public ArrayList<Character> BuildMonster()
+	public ArrayList<CharFactory.Character> BuildMonster()
 	{
 		hero = state.BuildMonster();
 		return hero;
 	}
 	
-	public void Encounter(ArrayList<Character> hero)
+	public void Encounter(ArrayList<CharFactory.Character> hero)
 	{
 		state.Encounter(hero);
 	}

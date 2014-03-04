@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class GameOverState implements GameState {
 	
 	Game game;
-	public ArrayList<Character> heroList = new ArrayList<Character>();
+	public ArrayList<CharFactory.Character> heroList = new ArrayList<CharFactory.Character>();
 	
 	public GameOverState(Game gamePlay)
 	{
@@ -16,7 +16,7 @@ public class GameOverState implements GameState {
 		System.out.println("Game Over");
 	}
 	
-	public ArrayList<Character> Initialize()
+	public ArrayList<CharFactory.Character> Initialize()
 	{ 
 		return null;
 	}
@@ -26,13 +26,13 @@ public class GameOverState implements GameState {
 		System.out.println("GAME OVER MOVE");
 	}
 	
-	public ArrayList<Character> BuildMonster()
+	public ArrayList<CharFactory.Character> BuildMonster()
 	{
 		System.out.println("GAME OVER BUILDMONSTER");
 		return null;
 	}
 	
-	public void Encounter(ArrayList<Character> hero)
+	public void Encounter(ArrayList<CharFactory.Character> hero)
 	{
 		System.out.println("GAME OVER Encounter");
 	}

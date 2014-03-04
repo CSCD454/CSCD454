@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class InitializeState implements GameState {
 	
 	Game game;
-	public ArrayList<Character> heroList = new ArrayList<Character>();
+	public ArrayList<CharFactory.Character> heroList = new ArrayList<CharFactory.Character>();
 	
 	public InitializeState(Game gamePlay)
 	{
@@ -16,7 +16,7 @@ public class InitializeState implements GameState {
 		System.out.println("Game menu");
 	}
 	
-	public ArrayList<Character> Initialize()
+	public ArrayList<CharFactory.Character> Initialize()
 	{
 		System.out.println("*** Welcome to The Walking Dead ***");	
 		heroList = printGameMenu();
@@ -30,18 +30,18 @@ public class InitializeState implements GameState {
 		System.out.println("Please choose your character. GameMenu Move");
 	}
 	
-	public ArrayList<Character> BuildMonster()
+	public ArrayList<CharFactory.Character> BuildMonster()
 	{
 		System.out.println("Please choose your character. GameMenu BuildMonster");
 		return null;
 	}
 	
-	public void Encounter(ArrayList<Character> hero)
+	public void Encounter(ArrayList<CharFactory.Character> hero)
 	{
 		System.out.println("Please choose your character. GameMenu Encounter");
 	}
 	
-	public ArrayList<Character> printGameMenu()
+	public ArrayList<CharFactory.Character> printGameMenu()
 	{
 		String input = "";
 		int numChar = 0;
@@ -64,14 +64,9 @@ public class InitializeState implements GameState {
 		         System.out.println("IO error trying to read your name!");
 		         System.exit(1);
 		    }
-		    AttackBehavior weapon = new AttackBat();
-		    Character hero1 = new GoodCharacter(input);
-		    hero1 = new Male(hero1);
-		    hero1 = new Bartender(hero1, weapon);
+		    CharFactory.GoodCharacterFactory heroFactory = new CharFactory.GoodCharacterFactory();
 		    
-		    System.out.println(hero1.getClassName() + "      " + hero1.getName() + "      " + hero1.getHP() + "    " + hero1.getInit());
-		    
-		    heroList.add(hero1);
+		    heroList.add(heroFactory.create());
 	    }
 	    return heroList;
 	}
