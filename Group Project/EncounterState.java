@@ -1,5 +1,8 @@
 package GroupProject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -58,23 +61,70 @@ public class EncounterState implements GameState {
 		}//end for loop
 		
 		fight(battleList);
-		
-		//if character is still alive state
-			game.setState(game.getMoveState());
-		//else character state is dead, game over
 	}
 	
-	private void fight(ArrayList<CharFactory.Character> fightList) {
-		boolean alive = true;
+	private void fight(ArrayList<CharFactory.Character> fightList) 
+	{
+		System.out.println("This is where they fight.");
+		int moveChoice = 0; //1 for item use, 2 for attack
+		ItemFactory factory = new ItemFactory();
 		
-		while(alive) {
-			for(int i = 0; i < fightList.size(); i++) {
-				int x = fightList.get(i).attack();
-				System.out.println(x);
-			}
-			System.out.println("This is where they fight.");
-			alive = false;
+		Item firstAid = factory.createItem("firstaidkit");
+		if (fightList.get(0).getClassName() == "monster")
+		{
+			System.out.println("This is where the monster attacks");
+			//update monster and character hp
+			//character - monster weapon 
 		}
+		else
+		{
+			String input = "";
+			System.out.println("This is where the character makes its move");
+			System.out.println("This is the list of items and weapons you currently have.");
+			//System.out.println("(1) Items -      (2) Weapons - " + fightList.get(0).weapon);
+			System.out.println("Choose to use an item (1) or attack (2): ");
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		    try {
+		         input = br.readLine();
+		         moveChoice = Integer.parseInt(input);
+		    } catch (IOException ioe) {
+		         System.out.println("IO error trying to read your name!");
+		         System.exit(1);
+		    }
+		    if (moveChoice == 1)
+		    {
+		    	System.out.println("The character will use an item");
+		    	System.out.println("The item is " + firstAid.getItemName() + " with a healing amount of " + firstAid.getHealAmount());
+		    	System.out.println(firstAid.getDescription());
+		    	//update the characters hp
+		    	int temp = fightList.get(0).getHP();
+		    	//need to update the characters hp
+		    	//hp + first aid heal amount
+		    }
+		    else if (moveChoice == 2)
+		    {
+		    	System.out.println("The character will attack");
+		    	fightList.get(0).attack();
+		    	//update character and monster hp
+		    	//monster hp - weapon
+		    }
+		    else
+		    {
+		    	System.out.println("Invalid Choice");
+		    }
+		}
+		
+		for(int i = 0; i < fightList.size(); i++) {
+			int x = fightList.get(i).attack();
+			System.out.println(x);
+		}
+		
+		/*
+		 if the monster is dead, set game state to move
+		 if the character is dead, set game state to game over
+		 else call encounter on the fight list again
+		 */
+		
 	}//end fight
 	
 	public void GameOver()

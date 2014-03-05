@@ -28,7 +28,7 @@ public class GameOverState implements GameState {
 	
 	public ArrayList<CharFactory.Character> BuildMonster()
 	{
-		System.out.println("GAME OVER BUILDMONSTER");
+		System.out.println("GAME OVER");
 		return null;
 	}
 	
@@ -38,5 +38,7 @@ public class GameOverState implements GameState {
 	}
 	
 	public void GameOver()
-	{ }
+	{ 
+		System.out.println("****************Game is over!!!!****************");
+	}
 }
