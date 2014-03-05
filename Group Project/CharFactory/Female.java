@@ -6,11 +6,11 @@ public class Female extends CharacterRaceDecorator {
 	public Female(Character character) {
 		this.character = character;
 		setRaceName("Female");
-		setHP(35);
+		//setHP(35);
 	}
 	
 	public int getHP() {
-		return (character.getHP() + 5);
+		return (character.getHP() + 35);
 	}
 	
 	public int getInit() {

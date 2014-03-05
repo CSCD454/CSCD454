@@ -9,11 +9,19 @@ public abstract class Character {
 	private String name = "null";
 	protected String className = "Classless";
 	private String raceName = "Raceless";
-	protected int hp = 100, init = 1;
+	protected int hp = 100, init = 1, realHP;
 	private ArrayList inventory = new ArrayList(10);	//Need to define arraylist type later
 	
 	public Character() {
 		
+	}
+	
+	public void setRealHP(int hp) {
+		this.realHP = hp;
+	}
+	
+	public int getRealHP() {
+		return this.realHP;
 	}
 	
 	public String getClassName() {

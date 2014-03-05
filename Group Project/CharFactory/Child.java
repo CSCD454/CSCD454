@@ -6,11 +6,11 @@ public class Child extends CharacterRaceDecorator {
 	public Child(Character character) {
 		this.character = character;
 		setRaceName("Child");
-		setHP(-25);
+		//setHP(-25);
 	}
 	
 	public int getHP() {
-		return (character.getHP() + 5);
+		return (character.getHP() - 25);
 	}
 	
 	public int getInit() {

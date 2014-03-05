@@ -47,9 +47,14 @@ public class EncounterState implements GameState {
 		});//end collections sort
 		
 		for(int i = 0; i < battleList.size(); i ++) {
+			battleList.get(i).setRealHP(battleList.get(i).getHP());	
+			//setting the realHp to the modified hp value so we can work with it
+			
 			System.out.println(battleList.get(i).getName() + " class is a " + battleList.get(i).getClassName() + 
-					" initiative is " + battleList.get(i).getInit() + " " + " and HP are " + battleList.get(i).getHP() 
+					" initiative is " + battleList.get(i).getInit() + " " + " and HP are " + battleList.get(i).getRealHP()
 					+ " and race is " + battleList.get(i).getRaceName());
+			
+			
 		}//end for loop
 		
 		fight(battleList);
