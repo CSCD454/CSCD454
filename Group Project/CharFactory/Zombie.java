@@ -1,13 +1,14 @@
 package CharFactory;
 
-public class Zombie extends CharacterClass {
+public class Zombie extends CharacterClassDecorator {
 
 	Character character;
 
-	public Zombie(Character character, AttackBehavior weapon) {
+	public Zombie(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		super.className = "Zombie";
 		setWeapon(weapon);
+		this.hp += -10;
 	}
 
 	@Override

@@ -1,9 +1,17 @@
 package CharFactory;
 
-public class Pistol implements AttackBehavior {
+import java.util.Random;
+
+public class Pistol implements IWeaponBehavior {
 
 	@Override
-	public void attack() {
-		System.out.println("Hit and kill with a pistol.");
+	public int attack() {
+		Random rg = new Random();
+		int attackRange;
+		
+		attackRange = rg.nextInt(20 - 10) + 10;
+		
+		System.out.println("Shoots pistol and deals " + attackRange + " points of damage.");
+		return attackRange;
 	}
 }

@@ -48,13 +48,13 @@ public class BadCharacterFactory extends CharacterFactory{
 		Character raceTemp = character;
 		
 		if(rRace == male) {
-			character = new Male(character);
+			raceTemp = new Male(raceTemp);
 		}
 		else if(rRace == female) {
-			character = new Female(character);
+			raceTemp = new Female(raceTemp);
 		}
 		else if(rRace == child) {
-			character = new Child(character);
+			raceTemp = new Child(raceTemp);
 		}
 		else {
 			System.err.println("Random number generator is not working right and rolled a " + rRace);
@@ -65,7 +65,7 @@ public class BadCharacterFactory extends CharacterFactory{
 	
 	private Character makeClass(Character character) {
 		Character classTemp = character;
-		AttackBehavior weapon;
+		IWeaponBehavior weapon;
 		
 		if(rClass == bartender) {
 			weapon = new BottleWhiskey();
@@ -111,6 +111,7 @@ public class BadCharacterFactory extends CharacterFactory{
 		while(reader.hasNextLine()) {
 			names.add(reader.nextLine());
 		}
+		reader.close();
 	}
 
 	private String randName() {

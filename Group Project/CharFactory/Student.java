@@ -1,13 +1,14 @@
 package CharFactory;
 
-public class Student extends CharacterClass {
+public class Student extends CharacterClassDecorator {
 
 	Character character;
 	
-	public Student(Character character, AttackBehavior weapon) {
+	public Student(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		super.className = "Student";
 		setWeapon(weapon);
+		this.hp += 3;
 	}
 	
 	@Override

@@ -1,14 +1,16 @@
 package CharFactory;
 
-public class Female extends CharacterRace {
+public class Female extends CharacterRaceDecorator {
 	Character character;
 	
 	public Female(Character character) {
 		this.character = character;
+		setRaceName("Female");
+		setHP(35);
 	}
 	
 	public int getHP() {
-		return (character.getHP() + 35);
+		return (character.getHP() + 5);
 	}
 	
 	public int getInit() {

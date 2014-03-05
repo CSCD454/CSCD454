@@ -1,6 +1,6 @@
 package CharFactory;
 
-public abstract class CharacterClass extends Character {
+public abstract class CharacterRaceDecorator extends Character {
 
 	public abstract int getHP();
 	

@@ -1,18 +1,19 @@
 package CharFactory;
 
-public class Bartender extends CharacterClass {
+public class Bartender extends CharacterClassDecorator {
 
 	Character character;
 	
-	public Bartender(Character character, AttackBehavior weapon) {
+	public Bartender(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		super.className = "Bartender";
 		setWeapon(weapon);
+		this.hp += 5;
 	}
 	
 	@Override
 	public int getHP() {
-		return (character.getHP() + 1);
+		return (character.getHP() + 1);	//HP are not modifying right and can't assign a race name
 	}
 
 	@Override

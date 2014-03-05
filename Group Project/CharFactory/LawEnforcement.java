@@ -1,13 +1,14 @@
 package CharFactory;
 
-public class LawEnforcement extends CharacterClass {
+public class LawEnforcement extends CharacterClassDecorator {
 
 	Character character;
 	
-	public LawEnforcement(Character character, AttackBehavior weapon) {
+	public LawEnforcement(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		super.className = "Law Enforcement";
 		setWeapon(weapon);
+		this.hp += 15;
 	}
 	
 	@Override

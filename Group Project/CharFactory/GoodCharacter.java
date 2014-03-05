@@ -6,9 +6,6 @@ public class GoodCharacter extends Character {
 	
 	public GoodCharacter(String name) {
 		super.setName(name);
-	}
-	
-	public void attack() {
-		//Attack interface goes here
+		this.isGood = true;
 	}
 }

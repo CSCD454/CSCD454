@@ -47,7 +47,9 @@ public class EncounterState implements GameState {
 		});//end collections sort
 		
 		for(int i = 0; i < battleList.size(); i ++) {
-			System.out.println(battleList.get(i).getClassName() + " " + battleList.get(i).getInit() + " " + battleList.get(i).getName());
+			System.out.println(battleList.get(i).getName() + " class is a " + battleList.get(i).getClassName() + 
+					" initiative is " + battleList.get(i).getInit() + " " + " and HP are " + battleList.get(i).getHP() 
+					+ " and race is " + battleList.get(i).getRaceName());
 		}//end for loop
 		
 		fight(battleList);
@@ -61,6 +63,10 @@ public class EncounterState implements GameState {
 		boolean alive = true;
 		
 		while(alive) {
+			for(int i = 0; i < fightList.size(); i++) {
+				int x = fightList.get(i).attack();
+				System.out.println(x);
+			}
 			System.out.println("This is where they fight.");
 			alive = false;
 		}

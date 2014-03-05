@@ -1,13 +1,14 @@
 package CharFactory;
 
-public class CouchPotatoe extends CharacterClass {
+public class CouchPotatoe extends CharacterClassDecorator {
 
 	Character character;
 	
-	public CouchPotatoe(Character character, AttackBehavior weapon) {
+	public CouchPotatoe(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		super.className = "Couch Potatoe";
 		setWeapon(weapon);
+		this.hp += 5;
 	}
 	
 	@Override

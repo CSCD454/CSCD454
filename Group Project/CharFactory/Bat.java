@@ -1,9 +1,17 @@
 package CharFactory;
 
-public class Bat implements AttackBehavior {
+import java.util.Random;
+
+public class Bat implements IWeaponBehavior {
 
 	@Override
-	public void attack() {
-		System.out.println("Hit and kill with a bat");
+	public int attack() {
+		Random rg = new Random();
+		int attackRange;
+		
+		attackRange = rg.nextInt(9 - 5) + 5;
+		
+		System.out.println("Swings Bat and deals " + attackRange + " points of damage.");
+		return attackRange;
 	}
 }

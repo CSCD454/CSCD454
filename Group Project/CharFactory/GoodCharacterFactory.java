@@ -28,9 +28,6 @@ public class GoodCharacterFactory extends CharacterFactory {
 	*/
 	
 	public Character create() {
-		
-		//TODO: make a rand name generator.  Also might need to nest badcharacter inside race to see if male or female first
-		// so can have appropriate name.
 		character = new GoodCharacter(name);
 		
 		character = race(character);
@@ -43,16 +40,16 @@ public class GoodCharacterFactory extends CharacterFactory {
 		Character raceTemp = character;
 		
 		if(rRace == male) {
-			character = new Male(character);
+			raceTemp = new Male(raceTemp);
 		}
 		else if(rRace == female) {
-			character = new Female(character);
+			raceTemp = new Female(raceTemp);
 		}
 		else if(rRace == child) {
-			character = new Child(character);
+			raceTemp = new Child(raceTemp);
 		}
 		else {
-			System.err.println("Random number generator is not working right and rolled a " + rRace);
+			System.err.println("Random number generator is not working right and rolled a " + this.rRace);
 		}
 		
 		return raceTemp;
@@ -60,7 +57,7 @@ public class GoodCharacterFactory extends CharacterFactory {
 	
 	private Character makeClass(Character character) {
 		Character classTemp = character;
-		AttackBehavior weapon;
+		IWeaponBehavior weapon;
 		
 		if(rClass == bartender) {
 			weapon = new BottleWhiskey();
@@ -79,7 +76,7 @@ public class GoodCharacterFactory extends CharacterFactory {
 			classTemp = new LawEnforcement(classTemp, weapon);
 		}
 		else {
-			System.err.println("Random number generator not working rolled: " + rClass);
+			System.err.println("Random number generator not working rolled: " + this.rClass);
 		}
 		
 		return classTemp;

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public abstract class Character {
 	
-	AttackBehavior weapon;
+	IWeaponBehavior weapon;
+	boolean isGood = false;
 	private String name = "null";
 	protected String className = "Classless";
-	private int hp = 100, init = 1;
+	private String raceName = "Raceless";
+	protected int hp = 100, init = 1;
 	private ArrayList inventory = new ArrayList(10);	//Need to define arraylist type later
 	
 	public Character() {
@@ -16,6 +18,14 @@ public abstract class Character {
 	
 	public String getClassName() {
 		return this.className;
+	}
+	
+	public String getRaceName()	{
+		return this.raceName;
+	}
+	
+	public void setRaceName(String raceName) {
+		this.raceName = raceName;
 	}
 	
 	public void setName(String name) {
@@ -30,6 +40,10 @@ public abstract class Character {
 		return this.hp;
 	}
 	
+	public void setHP(int num) {
+		this.hp = num;
+	}
+	
 	public int getInit() {
 		return this.init;
 	}
@@ -38,11 +52,11 @@ public abstract class Character {
 		return this.inventory;
 	}
 	
-	public void setWeapon(AttackBehavior weapon) {
+	public void setWeapon(IWeaponBehavior weapon) {
 		this.weapon = weapon;
 	}
 	
-	public void attack() {
-		this.weapon.attack();
+	public int attack() {
+		return this.weapon.attack();
 	}
 }

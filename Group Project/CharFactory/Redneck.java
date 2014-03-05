@@ -1,13 +1,14 @@
 package CharFactory;
 
-public class Redneck extends CharacterClass {
+public class Redneck extends CharacterClassDecorator {
 
 	Character character;
 	
-	public Redneck(Character character, AttackBehavior weapon) {
+	public Redneck(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		super.className = "Redneck";
 		setWeapon(weapon);
+		this.hp += 20;
 	}
 	
 	@Override
