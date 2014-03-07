@@ -13,7 +13,6 @@ public class GameOverState implements GameState {
 	public GameOverState(Game gamePlay)
 	{
 		this.game = gamePlay;
-		System.out.println("Game Over");
 	}
 	
 	public ArrayList<CharFactory.Character> Initialize()
@@ -21,14 +20,14 @@ public class GameOverState implements GameState {
 		return null;
 	}
 	
-	public void Move()
+	public void Move(CharFactory.Character character)
 	{
 		System.out.println("GAME OVER MOVE");
 	}
 	
 	public ArrayList<CharFactory.Character> BuildMonster()
 	{
-		System.out.println("GAME OVER BUILDMONSTER");
+		System.out.println("GAME OVER");
 		return null;
 	}
 	
@@ -38,5 +37,7 @@ public class GameOverState implements GameState {
 	}
 	
 	public void GameOver()
-	{ }
+	{ 
+		System.out.println("****************Game is over!!!!****************");
+	}
 }

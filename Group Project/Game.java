@@ -34,9 +34,9 @@ public class Game {
 		hero = state.Initialize();
 		return hero;
 	}
-	public void Move()
+	public void Move(CharFactory.Character character)
 	{
-		state.Move();
+		state.Move(character);
 	}
 	
 	public ArrayList<CharFactory.Character> BuildMonster()

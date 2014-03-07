@@ -6,7 +6,7 @@ public class Water extends Item {
 	{
 		itemName = "Water";
 		healAmount = 5;
-		description = "This water will give you 5 points back.";
+		description = "This water will give you 5 HP back.";
 	}
 
 }

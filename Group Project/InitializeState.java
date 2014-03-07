@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import CharFactory.*;
+
 public class InitializeState implements GameState {
 	
 	Game game;
@@ -13,19 +15,18 @@ public class InitializeState implements GameState {
 	public InitializeState(Game gamePlay)
 	{
 		this.game = gamePlay;
-		System.out.println("Game menu");
 	}
-	
+
 	public ArrayList<CharFactory.Character> Initialize()
 	{
-		System.out.println("*** Welcome to The Walking Dead ***");	
+		System.out.println("*** Welcome to The Walking Dead ***");
+		System.out.println(" ");
 		heroList = printGameMenu();
-		System.out.println("***********************************");
 		game.setState(game.getMoveState());
 		return heroList;
 	}
 	
-	public void Move()
+	public void Move(CharFactory.Character character)
 	{
 		System.out.println("Please choose your character. GameMenu Move");
 	}
@@ -45,6 +46,7 @@ public class InitializeState implements GameState {
 	{
 		String input = "";
 		int numChar = 0;
+		
 		System.out.println("How many characters would you like?");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    try {
@@ -66,11 +68,32 @@ public class InitializeState implements GameState {
 		    }
 		    CharFactory.GoodCharacterFactory heroFactory = new CharFactory.GoodCharacterFactory(input);
 		    
-		    heroList.add(heroFactory.create());
+		    CharFactory.Character hero1 = heroFactory.create();
+		    ItemFactory factory = new ItemFactory();
+			Item water = factory.createItem("water");
+			hero1.setInventory(water);
+			hero1.setInventory(water);
+			hero1.setRealHP(hero1.getHP());
+		    heroList.add(hero1);
 	    }
-	    return heroList;
+	    printInitialGameSetup();
+	    return heroList; 
+	}
+	
+	void printInitialGameSetup()
+	{
+		System.out.println("Hello " + heroList.get(0).getName() + ". You are a " + heroList.get(0).getClassName() + 
+				" with a health of " + heroList.get(0).getHP() + " and an initiative value of " + heroList.get(0).getInit() + ".");
+		System.out.println("Your initial inventory is:");
+		for (int i = 0; i < heroList.get(0).getInventory().size(); i++)
+		{
+			System.out.println(" - " + heroList.get(0).getInventory().get(i).itemName);
+		}
+		System.out.println("You are in the woods needing to make it to the abandoned jail for safety with other survivors. ");
+		System.out.println("There are buildings around with stray food from before the apocolypse.\nZombies are closing in due to a gun shot that just went off.");
 	}
 	
 	public void GameOver()
 	{ }
+
 }
