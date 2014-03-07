@@ -39,7 +39,6 @@ public class BuildMonsterState implements GameState {
 
 		CharFactory.BadCharacterFactory monsterMaker = new CharFactory.BadCharacterFactory();
 		Character m = monsterMaker.create();
-		m.setRealHP(m.getHP());
 		fightList.add(m);
 		return fightList;
 	}

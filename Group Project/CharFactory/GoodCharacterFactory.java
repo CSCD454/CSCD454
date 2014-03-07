@@ -33,6 +33,8 @@ public class GoodCharacterFactory extends CharacterFactory {
 		character = race(character);
 		character = makeClass(character);
 		
+		this.character.isGood = true;
+		
 		return character;
 	}
 	

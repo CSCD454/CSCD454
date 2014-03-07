@@ -50,13 +50,13 @@ public class EncounterState implements GameState {
 		});//end collections sort
 		if (battleList.get(0).isGood == true)
 		{
-			System.out.println("You have encountered a " + battleList.get(1).getClassName() + " monster named " + battleList.get(1).getName() + "!");
-			System.out.println("Your current HP is " + battleList.get(0).getRealHP());
+			System.out.println("You have encountered a " + battleList.get(1).getCName() + " monster named " + battleList.get(1).getName() + "!");
+			System.out.println("Your current HP is " + battleList.get(0).getHP());
 		} 
 		else
 		{
-			System.out.println("You have encountered a " + battleList.get(0).getClassName() + " monster named " + battleList.get(0).getName() + "!");
-			System.out.println("Your current HP is " + battleList.get(1).getRealHP());
+			System.out.println("You have encountered a " + battleList.get(0).getCName() + " monster named " + battleList.get(0).getName() + "!");
+			System.out.println("Your current HP is " + battleList.get(1).getHP());
 		}
 		
 		
@@ -74,10 +74,10 @@ public class EncounterState implements GameState {
 			{
 				if (fightList.get(y).isGood == true)
 				{
-					int temp = fightList.get(y).getRealHP();
-					fightList.get(y).setRealHP(temp - x);
-					System.out.println("Your new HP is " + fightList.get(y).getRealHP());
-					if (fightList.get(y).getRealHP() <= 0)
+					int temp = fightList.get(y).getHP();
+					fightList.get(y).setHP(temp - x);
+					System.out.println("Your new HP is " + fightList.get(y).getHP());
+					if (fightList.get(y).getHP() <= 0)
 					{
 						game.setState(game.getGameOverState());
 						game.GameOver();
@@ -135,15 +135,15 @@ public class EncounterState implements GameState {
 			    	System.out.println("You chose " + tempItem.getItemName() + " with a healing amount of " + tempItem.getHealAmount());
 			    	System.out.println(tempItem.getDescription());
 			    	int max = fightList.get(0).getHP();
-			    	int tempHP = fightList.get(0).getRealHP();
+			    	int tempHP = fightList.get(0).getHP();
 			    	int tempHeal = tempItem.getHealAmount();
 			    	if ((tempHP + tempHeal) > max)
-			    		fightList.get(turn).setRealHP(max);
+			    		fightList.get(turn).setHP(max);
 			    	else
-			    		fightList.get(turn).setRealHP(tempHP + tempHeal);
+			    		fightList.get(turn).setHP(tempHP + tempHeal);
 			    	
 			    	fightList.get(turn).getInventory().remove(tempItem);
-			    	System.out.println("Your new HP is " + fightList.get(turn).getRealHP());
+			    	System.out.println("Your new HP is " + fightList.get(turn).getHP());
 			    	System.out.println("");
 			    	int t = turn+1;
 					if (t == fightList.size())
@@ -162,10 +162,9 @@ public class EncounterState implements GameState {
 				{
 					if (fightList.get(y).isGood == false)
 					{
-						int temp = fightList.get(y).getRealHP();
-						fightList.get(y).setRealHP(temp - x);
-						//System.out.println("CHARACTER ATTACTED ------ NEW HP ====== " + fightList.get(y).getRealHP());
-						if (fightList.get(y).getRealHP() <= 0)
+						int temp = fightList.get(y).getHP();
+						fightList.get(y).setHP(temp - x);
+						if (fightList.get(y).getHP() <= 0)
 						{
 							System.out.println("You killed the monster!");
 							game.setState(game.getMoveState());
@@ -173,7 +172,7 @@ public class EncounterState implements GameState {
 						}
 						else
 						{
-							System.out.println("The monster now has an HP of " + fightList.get(y).getRealHP());
+							System.out.println("The monster now has an HP of " + fightList.get(y).getHP());
 							int t = turn+1;
 							if (t == fightList.size())
 								fight(fightList, 0);

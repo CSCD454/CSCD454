@@ -6,6 +6,5 @@ public class GoodCharacter extends Character {
 	
 	public GoodCharacter(String name) {
 		super.setName(name);
-		this.isGood = true;
 	}
 }

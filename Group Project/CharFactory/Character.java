@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public abstract class Character {
 	
 	IWeaponBehavior weapon;
-	boolean isGood = false;
+	public boolean isGood = false;
 	private String name = "null";
 	private String className = "Classless", raceName = "Raceless";
 	private int hp = 100, init = 1;
-	private ArrayList inventory = new ArrayList(10);	//Need to define arraylist type later
+	private ArrayList<GroupProject.Item> inventory = new ArrayList<GroupProject.Item>(10);	//Need to define arraylist type later
 	
 	public Character() {
 		
@@ -51,8 +51,13 @@ public abstract class Character {
 		return this.init;
 	}
 	
-	public ArrayList getInventory () {	//Define arraylist here too
+	public ArrayList<GroupProject.Item> getInventory () {	//Define arraylist here too
 		return this.inventory;
+	}
+	
+	public void setInventory(GroupProject.Item item)
+	{
+		this.inventory.add(item);
 	}
 	
 	public void setWeapon(IWeaponBehavior weapon) {

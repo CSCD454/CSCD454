@@ -73,7 +73,6 @@ public class InitializeState implements GameState {
 			Item water = factory.createItem("water");
 			hero1.setInventory(water);
 			hero1.setInventory(water);
-			hero1.setRealHP(hero1.getHP());
 		    heroList.add(hero1);
 	    }
 	    printInitialGameSetup();
@@ -82,7 +81,7 @@ public class InitializeState implements GameState {
 	
 	void printInitialGameSetup()
 	{
-		System.out.println("Hello " + heroList.get(0).getName() + ". You are a " + heroList.get(0).getClassName() + 
+		System.out.println("Hello " + heroList.get(0).getName() + ". You are a " + heroList.get(0).getCName() + 
 				" with a health of " + heroList.get(0).getHP() + " and an initiative value of " + heroList.get(0).getInit() + ".");
 		System.out.println("Your initial inventory is:");
 		for (int i = 0; i < heroList.get(0).getInventory().size(); i++)
