@@ -6,10 +6,14 @@ public class Zombie extends CharacterClassDecorator {
 
 	public Zombie(Character character, IWeaponBehavior weapon) {
 		this.character = character;
-		setClassName("Zombie");
+		super.className = "Zombie";
 		setWeapon(weapon);
-		setHP(this.character.getHP() - 10);
-		setRName(this.character.getRaceName());
+		this.hp += -10;
+	}
+
+	@Override
+	public int getHP() {
+		return (character.getHP() + 1);
 	}
 
 	@Override

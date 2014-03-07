@@ -5,21 +5,22 @@ public class Male extends CharacterRaceDecorator {
 	
 	public Male(Character character) {
 		this.character = character;
-		setRName("Male");
-		setHP(this.character.getHP() + 50);
+		setRaceName("Male");
+		//setHP(50);
 	}
 	
-	@Override
+	public int getHP() {
+		return (character.getHP() + 50);
+	}
+	
 	public int getInit() {
 		return (character.getInit() + 1);
 	}
 	
-	@Override
 	public String getName() {
 		return this.character.getName();
 	}
 	
-	@Override
 	public int getInfection() {
 		return 4;
 	}

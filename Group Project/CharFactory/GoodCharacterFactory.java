@@ -75,10 +75,6 @@ public class GoodCharacterFactory extends CharacterFactory {
 			weapon = new Pistol();
 			classTemp = new LawEnforcement(classTemp, weapon);
 		}
-		else if(rClass == couchPotatoe) {
-			weapon = new TvRemote();
-			classTemp = new CouchPotatoe(classTemp, weapon);
-		}
 		else {
 			System.err.println("Random number generator not working rolled: " + this.rClass);
 		}

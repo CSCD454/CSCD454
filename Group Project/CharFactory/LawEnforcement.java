@@ -6,10 +6,14 @@ public class LawEnforcement extends CharacterClassDecorator {
 	
 	public LawEnforcement(Character character, IWeaponBehavior weapon) {
 		this.character = character;
-		setClassName("Law Enforcement");
+		super.className = "Law Enforcement";
 		setWeapon(weapon);
-		setHP(this.character.getHP() + 15);
-		setRName(this.character.getRaceName());
+		this.hp += 15;
+	}
+	
+	@Override
+	public int getHP() {
+		return (character.getHP() + 1);
 	}
 
 	@Override

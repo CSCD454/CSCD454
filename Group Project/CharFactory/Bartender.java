@@ -6,10 +6,14 @@ public class Bartender extends CharacterClassDecorator {
 	
 	public Bartender(Character character, IWeaponBehavior weapon) {
 		this.character = character;
-		setClassName("Bartender");
+		super.className = "Bartender";
 		setWeapon(weapon);
-		setHP(this.character.getHP() + 5);
-		setRName(this.character.getRaceName());
+		this.hp += 5;
+	}
+	
+	@Override
+	public int getHP() {
+		return (character.getHP() + 1);	//HP are not modifying right and can't assign a race name
 	}
 
 	@Override

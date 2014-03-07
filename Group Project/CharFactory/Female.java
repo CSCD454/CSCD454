@@ -5,21 +5,22 @@ public class Female extends CharacterRaceDecorator {
 	
 	public Female(Character character) {
 		this.character = character;
-		setRName("Female");
-		setHP(this.character.getHP() + 35);
+		setRaceName("Female");
+		//setHP(35);
 	}
 	
-	@Override
+	public int getHP() {
+		return (character.getHP() + 35);
+	}
+	
 	public int getInit() {
 		return (character.getInit() + 2);
 	}
 	
-	@Override
 	public String getName() {
 		return this.character.getName();
 	}
 	
-	@Override
 	public int getInfection() {
 		return 4;
 	}

@@ -6,10 +6,14 @@ public class Redneck extends CharacterClassDecorator {
 	
 	public Redneck(Character character, IWeaponBehavior weapon) {
 		this.character = character;
-		setClassName("Redneck");
+		super.className = "Redneck";
 		setWeapon(weapon);
-		setHP(this.character.getHP() + 20);
-		setRName(this.character.getRaceName());
+		this.hp += 20;
+	}
+	
+	@Override
+	public int getHP() {
+		return (character.getHP() + 1);
 	}
 
 	@Override

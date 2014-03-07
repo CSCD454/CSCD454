@@ -3,7 +3,7 @@ package CharFactory;
 
 public abstract class CharacterFactory {
 
-	protected final int bartender = 1, redneck = 2, student = 3, lawEnforcement = 4, couchPotatoe = 5, zombie = 6;
+	protected final int bartender = 1, redneck = 2, student = 3, lawEnforcement = 4, zombie = 5;
 	protected final int male = 1, female = 2, child = 3;
 	
 	//Not using now.  Might use later if want to assign random weapons at creation time.
