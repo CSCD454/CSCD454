@@ -6,14 +6,10 @@ public class Student extends CharacterClassDecorator {
 	
 	public Student(Character character, IWeaponBehavior weapon) {
 		this.character = character;
-		super.className = "Student";
+		setClassName("Student");
 		setWeapon(weapon);
-		this.hp += 3;
-	}
-	
-	@Override
-	public int getHP() {
-		return (character.getHP() + 1);
+		setHP(this.character.getHP() + 3);
+		setRName(this.character.getRaceName());
 	}
 
 	@Override
