@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import ItemFactory.Item;
+import ItemFactory.ItemFactory;
+
 public class MoveState implements GameState 
 {
 	Game game;

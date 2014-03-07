@@ -1,5 +1,7 @@
 package CharFactory;
 
+import CharacterWeapons.IWeaponBehavior;
+
 public class CouchPotatoe extends CharacterClassDecorator {
 
 	Character character;

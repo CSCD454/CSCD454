@@ -6,6 +6,14 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import CharacterWeapons.Bite;
+import CharacterWeapons.Book;
+import CharacterWeapons.BottleWhiskey;
+import CharacterWeapons.Crossbow;
+import CharacterWeapons.IWeaponBehavior;
+import CharacterWeapons.Pistol;
+import CharacterWeapons.TvRemote;
+
 public class BadCharacterFactory extends CharacterFactory{
 
 	Character character;

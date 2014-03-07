@@ -1,4 +1,4 @@
-package CharFactory;
+package CharacterWeapons;
 
 import java.util.Random;
 

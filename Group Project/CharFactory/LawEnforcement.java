@@ -1,5 +1,7 @@
 package CharFactory;
 
+import CharacterWeapons.IWeaponBehavior;
+
 public class LawEnforcement extends CharacterClassDecorator {
 
 	Character character;

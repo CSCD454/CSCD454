@@ -2,6 +2,8 @@ package CharFactory;
 
 import java.util.ArrayList;
 
+import CharacterWeapons.IWeaponBehavior;
+
 public abstract class Character {
 	
 	IWeaponBehavior weapon;
@@ -9,7 +11,7 @@ public abstract class Character {
 	private String name = "null";
 	private String className = "Classless", raceName = "Raceless";
 	private int hp = 100, init = 1;
-	private ArrayList<GroupProject.Item> inventory = new ArrayList<GroupProject.Item>(10);	//Need to define arraylist type later
+	private ArrayList<ItemFactory.Item> inventory = new ArrayList<ItemFactory.Item>(10);	//Need to define arraylist type later
 	
 	public Character() {
 		
@@ -51,11 +53,11 @@ public abstract class Character {
 		return this.init;
 	}
 	
-	public ArrayList<GroupProject.Item> getInventory () {	//Define arraylist here too
+	public ArrayList<ItemFactory.Item> getInventory () {	//Define arraylist here too
 		return this.inventory;
 	}
 	
-	public void setInventory(GroupProject.Item item)
+	public void setInventory(ItemFactory.Item item)
 	{
 		this.inventory.add(item);
 	}

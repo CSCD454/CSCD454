@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
-import CharFactory.*;
+import ItemFactory.Item;
+import ItemFactory.ItemFactory;
 
 public class InitializeState implements GameState {
 	

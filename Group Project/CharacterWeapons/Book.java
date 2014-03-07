@@ -1,8 +1,8 @@
-package CharFactory;
+package CharacterWeapons;
 
 import java.util.Random;
 
-public class TvRemote implements IWeaponBehavior {
+public class Book implements IWeaponBehavior {
 
 	@Override
 	public int attack() {
@@ -11,7 +11,7 @@ public class TvRemote implements IWeaponBehavior {
 		
 		attackRange = rg.nextInt(9 - 3) + 3;
 		
-		System.out.println("Swings TV remote and deals " + attackRange + " points of damage.");
+		System.out.println("Swings Book and deals " + attackRange + " points of damage.");
 		return attackRange;
 	}
 }

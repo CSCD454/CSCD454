@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import ItemFactory.Item;
+
 public class EncounterState implements GameState {
 	
 	Game game;

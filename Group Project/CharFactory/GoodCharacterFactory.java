@@ -1,5 +1,12 @@
 package CharFactory;
 
+import CharacterWeapons.Book;
+import CharacterWeapons.BottleWhiskey;
+import CharacterWeapons.Crossbow;
+import CharacterWeapons.IWeaponBehavior;
+import CharacterWeapons.Pistol;
+import CharacterWeapons.TvRemote;
+
 public class GoodCharacterFactory extends CharacterFactory {
 
 	Character character;

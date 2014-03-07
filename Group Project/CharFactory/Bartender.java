@@ -1,5 +1,7 @@
 package CharFactory;
 
+import CharacterWeapons.IWeaponBehavior;
+
 public class Bartender extends CharacterClassDecorator {
 
 	Character character;

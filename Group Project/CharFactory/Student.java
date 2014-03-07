@@ -1,5 +1,7 @@
 package CharFactory;
 
+import CharacterWeapons.IWeaponBehavior;
+
 public class Student extends CharacterClassDecorator {
 
 	Character character;
