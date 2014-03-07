@@ -36,7 +36,7 @@ public static void main(String[] args) {
 			battleList.add(heroList.get(i));
 		}
 		for(int i = 0; i < battleList.size(); i ++) {
-			System.out.println(battleList.get(i).getClassName() + " " + battleList.get(i).getInit() + " " + battleList.get(i).getName());
+			System.out.println(battleList.get(i).getCName() + " " + battleList.get(i).getInit() + " " + battleList.get(i).getName());
 		}
 		walkingDead.Encounter(battleList);
 		

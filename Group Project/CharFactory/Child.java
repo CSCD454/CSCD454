@@ -5,22 +5,21 @@ public class Child extends CharacterRaceDecorator {
 	
 	public Child(Character character) {
 		this.character = character;
-		setRaceName("Child");
-		//setHP(-25);
+		setRName("Child");
+		setHP(this.character.getHP() - 25);
 	}
 	
-	public int getHP() {
-		return (character.getHP() - 25);
-	}
-	
+	@Override
 	public int getInit() {
 		return (character.getInit() + 3);
 	}
 	
+	@Override
 	public String getName() {
 		return this.character.getName();
 	}
 	
+	@Override
 	public int getInfection() {
 		return 0;
 	}

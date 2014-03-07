@@ -7,32 +7,27 @@ public abstract class Character {
 	IWeaponBehavior weapon;
 	boolean isGood = false;
 	private String name = "null";
-	protected String className = "Classless";
-	private String raceName = "Raceless";
-	protected int hp = 100, init = 1, realHP;
+	private String className = "Classless", raceName = "Raceless";
+	private int hp = 100, init = 1;
 	private ArrayList inventory = new ArrayList(10);	//Need to define arraylist type later
 	
 	public Character() {
 		
 	}
 	
-	public void setRealHP(int hp) {
-		this.realHP = hp;
-	}
-	
-	public int getRealHP() {
-		return this.realHP;
-	}
-	
-	public String getClassName() {
+	public String getCName() {
 		return this.className;
+	}
+	
+	public void setCName(String name) {
+		this.className = name;
 	}
 	
 	public String getRaceName()	{
 		return this.raceName;
 	}
 	
-	public void setRaceName(String raceName) {
+	public void setRName(String raceName) {
 		this.raceName = raceName;
 	}
 	

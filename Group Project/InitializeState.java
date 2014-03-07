@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import CharFactory.*;
-
 public class InitializeState implements GameState {
 	
 	Game game;
@@ -17,7 +15,7 @@ public class InitializeState implements GameState {
 		this.game = gamePlay;
 		System.out.println("Game menu");
 	}
-
+	
 	public ArrayList<CharFactory.Character> Initialize()
 	{
 		System.out.println("*** Welcome to The Walking Dead ***");	
@@ -68,26 +66,11 @@ public class InitializeState implements GameState {
 		    }
 		    CharFactory.GoodCharacterFactory heroFactory = new CharFactory.GoodCharacterFactory(input);
 		    
-		    CharFactory.Character hero1 = heroFactory.create();
-		    
-		    System.out.println(hero1.getClassName() + "      " + hero1.getName() + "      " + hero1.getHP() + "    " + hero1.getInit());
-		    
-		    heroList.add(hero1);
+		    heroList.add(heroFactory.create());
 	    }
-	    printInitialGameSetup();
-	    return heroList; 
-	}
-	
-	void printInitialGameSetup()
-	{
-		System.out.println("Hello " + heroList.get(0).getName() + ". You are a " + heroList.get(0).getClassName() + 
-				" with a health of " + heroList.get(0).getHP() + " and an initiative value of " + heroList.get(0).getInit() + ".");
-		
-		System.out.println("You are in the woods needing to make it to the abandoned jail for safety with other survivors. ");
-		System.out.println("There are buildings around with stray food from before the apocolypse. Zombies are closing in due to a gun shot that just went off.");
+	    return heroList;
 	}
 	
 	public void GameOver()
 	{ }
-
 }

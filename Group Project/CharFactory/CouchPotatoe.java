@@ -6,14 +6,10 @@ public class CouchPotatoe extends CharacterClassDecorator {
 	
 	public CouchPotatoe(Character character, IWeaponBehavior weapon) {
 		this.character = character;
-		super.className = "Couch Potatoe";
+		setCName("Couch Potatoe");
 		setWeapon(weapon);
-		this.hp += 5;
-	}
-	
-	@Override
-	public int getHP() {
-		return (character.getHP() + 1);
+		setHP(this.character.getHP() + 2);
+		setRName(this.character.getRaceName());
 	}
 
 	@Override
@@ -29,9 +25,5 @@ public class CouchPotatoe extends CharacterClassDecorator {
 	@Override
 	public int getInfection() {
 		return -1;
-	}
-	
-	public String getClassName() {
-		return this.className;
 	}
 }
