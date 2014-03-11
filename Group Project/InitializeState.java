@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import CharFactory.*;
+
 import ItemFactory.Item;
 import ItemFactory.ItemFactory;
 
@@ -46,40 +50,36 @@ public class InitializeState implements GameState {
 	{
 		String input = "";
 		int numChar = 0;
-		
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("How many characters would you like?");
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	    try {
-	         input = br.readLine();
-	         numChar = Integer.parseInt(input);
-	    } catch (IOException ioe) {
-	         System.out.println("IO error trying to read your name!");
-	         System.exit(1);
-	    }
-	    for (int x = 0; x < numChar; x++)
+		numChar = scanner.nextInt();
+		ItemFactory factory = new ItemFactory();
+		Item water = factory.createItem("water");
+	    for (int x = 1; x <= numChar; x++)
 	    {
-	    	System.out.println("Enter a name for first character: ");
-			br = new BufferedReader(new InputStreamReader(System.in));
-		    try {
-		         input = br.readLine();
-		    } catch (IOException ioe) {
-		         System.out.println("IO error trying to read your name!");
-		         System.exit(1);
-		    }
+	    	System.out.println("Enter a name for character " + x + ": ");
+
+	    	input = scanner.next();
 		    CharFactory.GoodCharacterFactory heroFactory = new CharFactory.GoodCharacterFactory(input);
 		    
-		    CharFactory.Character hero1 = heroFactory.create();
-		    ItemFactory factory = new ItemFactory();
-			Item water = factory.createItem("water");
-			hero1.setInventory(water);
-			hero1.setInventory(water);
-		    heroList.add(hero1);
+		    CharFactory.Character hero = heroFactory.create();
+			hero.setInventory(water);
+			hero.setInventory(water);
+		    heroList.add(hero);
 	    }
-	    printInitialGameSetup();
+	    
+	    if (heroList.size() == 1)
+	    	printInitialGameSetupOne();
+	    else
+	    	printInitialGameSetupMultiple();
+	    
+		System.out.println("You are in the woods needing to make it to the abandoned jail for safety with other survivors. ");
+		System.out.println("There are buildings around with stray food from before the apocolypse.\nZombies are closing in due to a gun shot that just went off.");
+		
 	    return heroList; 
 	}
 	
-	void printInitialGameSetup()
+	void printInitialGameSetupOne()
 	{
 		System.out.println("Hello " + heroList.get(0).getName() + ". You are a " + heroList.get(0).getCName() + 
 				" with a health of " + heroList.get(0).getHP() + " and an initiative value of " + heroList.get(0).getInit() + ".");
@@ -88,8 +88,22 @@ public class InitializeState implements GameState {
 		{
 			System.out.println(" - " + heroList.get(0).getInventory().get(i).itemName);
 		}
-		System.out.println("You are in the woods needing to make it to the abandoned jail for safety with other survivors. ");
-		System.out.println("There are buildings around with stray food from before the apocolypse.\nZombies are closing in due to a gun shot that just went off.");
+	}
+	
+	void printInitialGameSetupMultiple()
+	{
+		System.out.println("Hello. Here is the list of characters in your party, their initiative values and their hitpoints.");
+		for(int x = 0; x < heroList.size(); x++)
+		{
+			System.out.println(heroList.get(x).getName() + "     " + heroList.get(x).getCName() + 
+					"     " + heroList.get(x).getHP() + "     " + heroList.get(x).getInit());
+			System.out.println("Your initial inventory is:");
+			for (int i = 0; i < heroList.get(0).getInventory().size(); i++)
+			{
+				System.out.println(" - " + heroList.get(x).getInventory().get(i).itemName);
+			}
+			System.out.println("");
+		}
 	}
 	
 	public void GameOver()
