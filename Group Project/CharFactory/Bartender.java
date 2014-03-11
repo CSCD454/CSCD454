@@ -9,7 +9,7 @@ public class Bartender extends CharacterClassDecorator {
 	public Bartender(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		setCName("Bartender");
-		setWeapon(weapon);
+		setWeapons(weapon);
 		setHP(this.character.getHP() + 5);
 		setRName(this.character.getRaceName());
 	}

@@ -30,15 +30,18 @@ public class MoveState implements GameState
 	
 	void printMoveOptions(CharFactory.Character character)
 	{
-		int winLocation = (int )(Math.random() * 7 + 1);
+		//int winLocation = (int )(Math.random() * 10 + 1);
+		int winLocation = 0;
 		int monsterLocation, random;
 		String direction = "";
+		System.out.println("");
 		System.out.print("Which direction would you like to move? (N S E W) : ");
 		Scanner scanner = new Scanner(System.in);
 		direction = scanner.next();
 		
-		random = (int )(Math.random() * 6 + 1);
-		monsterLocation = (int )(Math.random() * 5 + 1);
+		random = (int )(Math.random() * 5 + 1);
+		random = random + 3;
+		monsterLocation = (int )(Math.random() * 8 + 1);
 		if (monsterLocation == random)
 		{
 			game.setState(game.getBuildMonsterState());
@@ -74,6 +77,42 @@ public class MoveState implements GameState
 			else if (random == 5)
 			{
 				System.out.println("You just tripped over a fallen tree and lost 5 hitpoints.");
+			}
+			else if (random == 6)
+			{
+				if (character.getWeapons().size() == 3)
+				{
+					System.out.println("You stumbled over a crossbow but you already have 3 weapons.");
+				}
+				else
+				{
+					System.out.println("You stumbled over a crossbow. Would you like to pick it up? (Y/N) ");
+					String response = "";
+					response = scanner.next();
+					if (response.equalsIgnoreCase("y"))
+					{
+						CharacterWeapons.IWeaponBehavior w = new CharacterWeapons.Crossbow();
+						character.setWeapons(w);
+					}
+				}
+			}
+			else if (random == 7)
+			{
+				if (character.getWeapons().size() == 3)
+				{
+					System.out.println("You found a pistol but you already have 3 weapons.");
+				}
+				else
+				{
+					System.out.println("You just found a pistol. Would you like to pick it up? (Y/N) ");
+					String response = "";
+					response = scanner.next();
+					if (response.equalsIgnoreCase("y"))
+					{
+						CharacterWeapons.IWeaponBehavior w = new CharacterWeapons.Pistol();
+						character.setWeapons(w);
+					}
+				}
 			}
 			else
 			{

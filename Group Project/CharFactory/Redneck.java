@@ -9,7 +9,7 @@ public class Redneck extends CharacterClassDecorator {
 	public Redneck(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		setCName("Redneck");
-		setWeapon(weapon);
+		setWeapons(weapon);
 		setHP(this.character.getHP() + 20);
 		setRName(this.character.getRaceName());
 	}

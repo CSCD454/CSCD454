@@ -9,7 +9,7 @@ public class Student extends CharacterClassDecorator {
 	public Student(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		setCName("Student");
-		setWeapon(weapon);
+		setWeapons(weapon);
 		setHP(this.character.getHP() + 3);
 		setRName(this.character.getRaceName());
 	}

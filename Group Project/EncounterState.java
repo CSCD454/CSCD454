@@ -14,6 +14,7 @@ import ItemFactory.ItemFactory;
 public class EncounterState implements GameState {
 	
 	Game game;
+	CharacterWeapons.IWeaponBehavior weapon = null;
 	
 	public EncounterState(Game gamePlay)
 	{
@@ -42,7 +43,7 @@ public class EncounterState implements GameState {
 		battleList = sortCharactersByInitiative(battleList);
 		
 		printMonsterAndHP(battleList);
-		
+				
 		fight(battleList, 0);
 	}
 	
@@ -71,12 +72,26 @@ public class EncounterState implements GameState {
 		{
 			System.out.println("You have encountered a " + battleList.get(1).getCName() + " monster named " + battleList.get(1).getName() + "!");
 			System.out.println("Your current HP is " + battleList.get(0).getHP());
+			getWeaponToUse(battleList.get(0));
 		} 
 		else
 		{
 			System.out.println("You have encountered a " + battleList.get(0).getCName() + " monster named " + battleList.get(0).getName() + "!");
 			System.out.println("Your current HP is " + battleList.get(1).getHP());
+			getWeaponToUse(battleList.get(1));
 		}
+	}
+	
+	private void getWeaponToUse(CharFactory.Character character)
+	{
+		printWeapons(character);
+		int weaponChoice = -1;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("");
+    	System.out.println("Which weapon would you like to use in the fight? ");
+		weaponChoice = scanner.nextInt();
+		scanner.nextLine();
+		weapon = character.getWeapons().get(weaponChoice);
 	}
 	
 	private void fight(ArrayList<CharFactory.Character> fightList, int turn) 
@@ -88,12 +103,12 @@ public class EncounterState implements GameState {
 		}
 		else
 		{
-			characterAttack(fightList, turn, moveChoice);
+			characterAction(fightList, turn, moveChoice);
 		}
 		
 	}//end fight
 	
-	private void characterAttack(ArrayList<CharFactory.Character> fightList, int turn, int moveChoice)
+	private void characterAction(ArrayList<CharFactory.Character> fightList, int turn, int moveChoice)
 	{
 		moveChoice = getUserAction();
 	    if (moveChoice == 1)
@@ -112,32 +127,37 @@ public class EncounterState implements GameState {
 	    {
 	    	System.out.println("");
 	    	System.out.println("You are attacking the monster!");
-	    	int x = fightList.get(turn).attack();
-	    	for (int y = 0; y < fightList.size(); y++)
-			{
-				if (fightList.get(y).isGood == false)
-				{
-					int temp = fightList.get(y).getHP();
-					fightList.get(y).setHP(temp - x);
-					if (fightList.get(y).getHP() <= 0)
-					{
-						System.out.println("You killed the monster!");
-						game.setState(game.getMoveState());
-						game.Move(fightList.get(turn));
-					}
-					else
-					{
-						System.out.println("The monster now has an HP of " + fightList.get(y).getHP());
-						determineWhoFightsNext(fightList, turn);
-					}
-				}
-			}
+	    	characterAttack(fightList, turn);
 	    }
 	    else
 	    {
 	    	System.out.println("Invalid Choice");
 	    	fight(fightList, turn);
 	    }
+	}
+	
+	private void characterAttack(ArrayList<CharFactory.Character> fightList, int turn)
+	{
+		int x = fightList.get(turn).attack(weapon);
+    	for (int y = 0; y < fightList.size(); y++)
+		{
+			if (fightList.get(y).isGood == false)
+			{
+				int temp = fightList.get(y).getHP();
+				fightList.get(y).setHP(temp - x);
+				if (fightList.get(y).getHP() <= 0)
+				{
+					System.out.println("You killed the monster!");
+					game.setState(game.getMoveState());
+					game.Move(fightList.get(turn));
+				}
+				else
+				{
+					System.out.println("The monster now has an HP of " + fightList.get(y).getHP());
+					determineWhoFightsNext(fightList, turn);
+				}
+			}
+		}
 	}
 	
 	private void applyItemSelection(ArrayList<CharFactory.Character> fightList, int turn)
@@ -171,7 +191,8 @@ public class EncounterState implements GameState {
 	private void monsterAttack(ArrayList<CharFactory.Character> fightList, int turn)
 	{
 		System.out.println("The monster attacks.");
-		int x = fightList.get(turn).attack();
+		CharacterWeapons.IWeaponBehavior w = fightList.get(turn).getWeapons().get(0);
+		int x = fightList.get(turn).attack(w);
 		for (int y = 0; y < fightList.size(); y++)
 		{
 			if (fightList.get(y).isGood == true)
@@ -224,6 +245,16 @@ public class EncounterState implements GameState {
 		for (int i = 0; i < fightList.get(turn).getInventory().size(); i++)
 		{
 			System.out.println("(" + i + ") " + fightList.get(turn).getInventory().get(i).itemName);
+		}
+	}
+	
+	private void printWeapons(CharFactory.Character character)
+	{
+		System.out.println("These are the weapons you have - ");
+		for (int i = 0; i < character.getWeapons().size(); i++)
+		{
+			System.out.print("(" + i + ") ");
+			character.getWeapons().get(i).weaponName();
 		}
 	}
 	

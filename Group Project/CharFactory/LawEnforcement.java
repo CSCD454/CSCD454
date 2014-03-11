@@ -9,7 +9,7 @@ public class LawEnforcement extends CharacterClassDecorator {
 	public LawEnforcement(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		setCName("Law Enforcement");
-		setWeapon(weapon);
+		setWeapons(weapon);
 		setHP(this.character.getHP() + 15);
 		setRName(this.character.getRaceName());
 	}

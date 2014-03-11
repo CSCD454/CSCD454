@@ -11,7 +11,8 @@ public abstract class Character {
 	private String name = "null";
 	private String className = "Classless", raceName = "Raceless";
 	private int hp = 100, init = 1;
-	private ArrayList<ItemFactory.Item> inventory = new ArrayList<ItemFactory.Item>(10);	//Need to define arraylist type later
+	private ArrayList<ItemFactory.Item> inventory = new ArrayList<ItemFactory.Item>(10);	
+	private ArrayList<CharacterWeapons.IWeaponBehavior> weapons = new ArrayList<CharacterWeapons.IWeaponBehavior>(3);
 	
 	public Character() {
 		
@@ -62,11 +63,19 @@ public abstract class Character {
 		this.inventory.add(item);
 	}
 	
-	public void setWeapon(IWeaponBehavior weapon) {
-		this.weapon = weapon;
+	public int attack(CharacterWeapons.IWeaponBehavior curWeapon) {
+		this.weapon = curWeapon;
+		return this.weapon.attack();
 	}
 	
-	public int attack() {
-		return this.weapon.attack();
+	public ArrayList<CharacterWeapons.IWeaponBehavior> getWeapons()
+	{
+		return this.weapons;
+	}
+	
+	public void setWeapons(CharacterWeapons.IWeaponBehavior weapon)
+	{
+		this.weapons.add(weapon);
+		weapon.weaponName();
 	}
 }
