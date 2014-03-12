@@ -4,6 +4,11 @@ import java.util.Random;
 
 public class Bat implements IWeaponBehavior {
 
+	public void weaponName()
+	{
+		System.out.println("Bat");
+	}
+	
 	@Override
 	public int attack() {
 		Random rg = new Random();

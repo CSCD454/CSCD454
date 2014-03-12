@@ -4,6 +4,11 @@ import java.util.Random;
 
 public class Book implements IWeaponBehavior {
 
+	public void weaponName()
+	{
+		System.out.println("Book");
+	}
+	
 	@Override
 	public int attack() {
 		Random rg = new Random();

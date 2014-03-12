@@ -4,6 +4,11 @@ import java.util.Random;
 
 public class TvRemote implements IWeaponBehavior {
 
+	public void weaponName()
+	{
+		System.out.println("TV Remote");
+	}
+	
 	@Override
 	public int attack() {
 		Random rg = new Random();
