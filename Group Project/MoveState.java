@@ -39,9 +39,10 @@ public class MoveState implements GameState
 		Scanner scanner = new Scanner(System.in);
 		direction = scanner.next();
 		
-		random = (int )(Math.random() * 5 + 1);
-		random = random + 3;
+		random = (int )(Math.random() * 8 + 1);
+		//random = random + 3;
 		monsterLocation = (int )(Math.random() * 8 + 1);
+		//monsterLocation = random;
 		if (monsterLocation == random)
 		{
 			game.setState(game.getBuildMonsterState());
@@ -83,6 +84,20 @@ public class MoveState implements GameState
 				if (character.getWeapons().size() == 3)
 				{
 					System.out.println("You stumbled over a crossbow but you already have 3 weapons.");
+					System.out.println("These are the weapons that you currently have:");
+					printWeapons(character);
+					System.out.println("Would you like to swap a weapon for the crossbow? (Y/N)");
+					String response = "";
+					response = scanner.next();
+					if (response.equalsIgnoreCase("y"))
+					{
+						System.out.println("Which weapon would you like to get rid of? ");
+						int drop = scanner.nextInt();
+						scanner.nextLine();
+						character.getWeapons().remove(drop);
+						CharacterWeapons.IWeaponBehavior w = new CharacterWeapons.Crossbow();
+						character.setWeapons(w);
+					}
 				}
 				else
 				{
@@ -121,6 +136,16 @@ public class MoveState implements GameState
 				character.setInventory(food);
 			}
 			game.Move(character);
+		}
+	}
+	
+	private void printWeapons(CharFactory.Character character)
+	{
+		System.out.println("These are the weapons you have - ");
+		for (int i = 0; i < character.getWeapons().size(); i++)
+		{
+			System.out.print("(" + i + ") ");
+			character.getWeapons().get(i).weaponName();
 		}
 	}
 	

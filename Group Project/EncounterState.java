@@ -80,6 +80,12 @@ public class EncounterState implements GameState {
 			System.out.println("Your current HP is " + battleList.get(1).getHP());
 			getWeaponToUse(battleList.get(1));
 		}
+		
+		/*for (int i = 0; i < battleList.size(); i++)
+		{
+			System.out.println("*******************" + battleList.get(i).getName());
+			System.out.println("*******************" + battleList.get(i).getHP());
+		}*/
 	}
 	
 	private void getWeaponToUse(CharFactory.Character character)
@@ -96,21 +102,20 @@ public class EncounterState implements GameState {
 	
 	private void fight(ArrayList<CharFactory.Character> fightList, int turn) 
 	{
-		int moveChoice = 0; //1 for item use, 2 for attack	
 		if (fightList.get(turn).isGood == false)
 		{
 			monsterAttack(fightList, turn);
 		}
 		else
 		{
-			characterAction(fightList, turn, moveChoice);
+			characterAction(fightList, turn);
 		}
 		
 	}//end fight
 	
-	private void characterAction(ArrayList<CharFactory.Character> fightList, int turn, int moveChoice)
+	private void characterAction(ArrayList<CharFactory.Character> fightList, int turn)
 	{
-		moveChoice = getUserAction();
+		int moveChoice = getUserAction();
 	    if (moveChoice == 1)
 	    {
 	    	if (fightList.get(turn).getInventory().size() == 0)
@@ -148,8 +153,10 @@ public class EncounterState implements GameState {
 				if (fightList.get(y).getHP() <= 0)
 				{
 					System.out.println("You killed the monster!");
+					fightList.remove(y);
 					game.setState(game.getMoveState());
-					game.Move(fightList.get(turn));
+					//System.out.println("turn " + turn + " fightList - " + fightList.get(turn));
+					game.Move(fightList.get(0));
 				}
 				else
 				{
@@ -227,13 +234,12 @@ public class EncounterState implements GameState {
 		Item tempItem = fightList.get(turn).getInventory().get(itemChoice);
     	System.out.println("You chose " + tempItem.getItemName() + " with a healing amount of " + tempItem.getHealAmount());
     	System.out.println(tempItem.getDescription());
-    	int max = fightList.get(turn).getHP();
-    	int tempHP = fightList.get(turn).getHP();
+    	int curHP = fightList.get(turn).getHP();
     	int tempHeal = tempItem.getHealAmount();
-    	if ((tempHP + tempHeal) > max)
-    		fightList.get(turn).setHP(max);
-    	else
-    		fightList.get(turn).setHP(tempHP + tempHeal);
+    	/*if ((tempHP + tempHeal) > max)
+    		fightList.get(turn).setHP(curHP + tempHeal);
+    	else*/
+    	fightList.get(turn).setHP(curHP + tempHeal);
     	
     	fightList.get(turn).getInventory().remove(tempItem);
     	System.out.println("Your new HP is " + fightList.get(turn).getHP());
