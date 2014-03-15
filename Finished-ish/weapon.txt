@@ -1,0 +1,4 @@
+You stumbled over a crossbow.  
+You just found a pistol.
+You just found a rifle.
+You just found a bat. 
