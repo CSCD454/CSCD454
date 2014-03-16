@@ -18,5 +18,5 @@ public class Bite implements IWeaponBehavior {
 		
 		System.out.println("Bite and deals " + attackRange + " points of damage.");
 		return attackRange;
-	}
+	}//end attack
 }

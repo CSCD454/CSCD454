@@ -14,6 +14,7 @@ public class GoodCharacterFactory extends CharacterFactory {
 	private int rClass, rRace, rWeapon;
 	
 	public GoodCharacterFactory(String name) {
+		super();
 		this.name = name;
 		randClass();
 		randRace();
@@ -22,11 +23,11 @@ public class GoodCharacterFactory extends CharacterFactory {
 	
 	protected void randClass() {
 		rClass = (int) (Math.random() * 4 + 1);
-	}
+	}//end randClass
 	
 	protected void randRace() {
 		rRace = (int) (Math.random() * 3 + 1);
-	}
+	}//end randRace
 	
 	/* Not useing now, but might use to give characters a random weapon.
 	protected void randWeapon() {
@@ -43,7 +44,7 @@ public class GoodCharacterFactory extends CharacterFactory {
 		this.character.isGood = true;
 		
 		return character;
-	}
+	}//end create
 	
 	private Character race(Character character) {
 		Character raceTemp = character;
@@ -62,7 +63,7 @@ public class GoodCharacterFactory extends CharacterFactory {
 		}
 		
 		return raceTemp;
-	}
+	}//end race
 	
 	private Character makeClass(Character character) {
 		Character classTemp = character;
@@ -93,8 +94,5 @@ public class GoodCharacterFactory extends CharacterFactory {
 		}
 		
 		return classTemp;
-	}
-	
-	
-	
+	}//end makeClass
 }

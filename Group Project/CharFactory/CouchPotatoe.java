@@ -11,21 +11,21 @@ public class CouchPotatoe extends CharacterClassDecorator {
 		setCName("Couch Potatoe");
 		setWeapons(weapon);
 		setHP(this.character.getHP() + 2);
-		setRName(this.character.getRaceName());
+		setRName(this.character.getRaceName());	//For some reason the race name kept getting hidden.
 	}
 
 	@Override
 	public int getInit() {
 		return (character.getInit() + 1);
-	}
+	}//end getInit
 
 	@Override
 	public String getName() {
 		return character.getName();
-	}
+	}//end getName
 
 	@Override
 	public int getInfection() {
-		return -1;
-	}
+		return this.infection;
+	}//end getInfection
 }

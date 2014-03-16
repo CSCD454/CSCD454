@@ -18,5 +18,5 @@ public class Pistol implements IWeaponBehavior {
 		
 		System.out.println("Shoots pistol and deals " + attackRange + " points of damage.");
 		return attackRange;
-	}
+	}//end attack
 }

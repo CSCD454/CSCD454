@@ -38,6 +38,6 @@ public class test {
 				walkingDead.Encounter(battleList);
 		    }
 		}
-	}
+	}//end main
 
 }

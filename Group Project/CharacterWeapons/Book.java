@@ -18,5 +18,5 @@ public class Book implements IWeaponBehavior {
 		
 		System.out.println("Swings Book and deals " + attackRange + " points of damage.");
 		return attackRange;
-	}
+	}//end attack
 }

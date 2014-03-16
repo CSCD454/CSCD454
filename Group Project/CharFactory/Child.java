@@ -12,15 +12,15 @@ public class Child extends CharacterRaceDecorator {
 	@Override
 	public int getInit() {
 		return (character.getInit() + 3);
-	}
+	}//end getInit
 	
 	@Override
 	public String getName() {
 		return this.character.getName();
-	}
+	}//end getName
 	
 	@Override
 	public int getInfection() {
-		return 0;
-	}
+		return this.infection;
+	}//end getInfection
 }

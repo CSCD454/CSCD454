@@ -3,6 +3,10 @@ package ItemFactory;
 
 public class ItemFactory {
 	
+	public ItemFactory() {
+		
+	}
+	
 	public Item createItem(String type)
 	{
 		Item item = null;
@@ -23,6 +27,6 @@ public class ItemFactory {
 			System.out.println("That is not a valid item");
 		}
 		return item;
-	}
+	}//end createItem
 		
 }

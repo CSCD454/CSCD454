@@ -12,15 +12,15 @@ public class Male extends CharacterRaceDecorator {
 	@Override
 	public int getInit() {
 		return (character.getInit() + 1);
-	}
+	}//end getInit
 	
 	@Override
 	public String getName() {
 		return this.character.getName();
-	}
+	}//end getName
 	
 	@Override
 	public int getInfection() {
-		return 4;
-	}
+		return this.infection;
+	}//end getInfection
 }

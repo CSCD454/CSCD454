@@ -1,6 +1,8 @@
 package GroupProject;
 
 import java.util.ArrayList;
+import RoomBuilder.MapMaker;
+import CharFactory.Character;
 
 public class Game {
 	
@@ -10,7 +12,9 @@ public class Game {
 	GameState encounter;
 	GameState zombie;
 	GameState overgame;
-	ArrayList<CharFactory.Character> hero;
+	protected ArrayList<Character> hero;
+	protected MapMaker map;
+	public ArrayList<Object> initReturn;
 	
 	GameState state = menu;
 	
@@ -29,23 +33,27 @@ public class Game {
 	{
 		this.state = state;
 	}
-	public ArrayList<CharFactory.Character> Initialize()
+	public ArrayList<Character> Initialize()
 	{
-		hero = state.Initialize();
+		initReturn = state.Initialize();
+		
+		map = (MapMaker) initReturn.get(0);
+		hero = (ArrayList<Character>) initReturn.get(1);
+		
 		return hero;
-	}
-	public void Move(CharFactory.Character character)
+	}//end Initialize
+	public void Move(Character character)
 	{
 		state.Move(character);
 	}
 	
-	public ArrayList<CharFactory.Character> BuildMonster()
+	public ArrayList<Character> BuildMonster()
 	{
 		hero = state.BuildMonster();
 		return hero;
 	}
 	
-	public void Encounter(ArrayList<CharFactory.Character> hero)
+	public void Encounter(ArrayList<Character> hero)
 	{
 		state.Encounter(hero);
 	}

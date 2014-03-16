@@ -18,5 +18,5 @@ public class TvRemote implements IWeaponBehavior {
 		
 		System.out.println("Swings TV remote and deals " + attackRange + " points of damage.");
 		return attackRange;
-	}
+	}//end attack
 }

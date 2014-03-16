@@ -22,6 +22,7 @@ public class BadCharacterFactory extends CharacterFactory{
 	private Random rg = new Random();
 	
 	public BadCharacterFactory() {
+		super();
 		randClass();
 		randRace();
 		//randWeapon();
@@ -29,12 +30,12 @@ public class BadCharacterFactory extends CharacterFactory{
 	}
 	
 	protected void randClass() {
-		rClass = (int) (Math.random() * 6 + 1);
-	}
+		rClass = (int) (Math.random() * 15 + 1);
+	}//end randClass
 	
 	protected void randRace() {
 		rRace = (int) (Math.random() * 3 + 1);
-	}
+	}//end randRace
 	
 	/* Not useing now, but might use to give characters a random weapon.
 	protected void randWeapon() {
@@ -50,7 +51,7 @@ public class BadCharacterFactory extends CharacterFactory{
 		character = makeClass(character);
 		
 		return character;
-	}
+	}//end create
 	
 	private Character race(Character character) {
 		Character raceTemp = character;
@@ -69,7 +70,7 @@ public class BadCharacterFactory extends CharacterFactory{
 		}
 		
 		return raceTemp;
-	}
+	}//end race
 	
 	private Character makeClass(Character character) {
 		Character classTemp = character;
@@ -95,20 +96,16 @@ public class BadCharacterFactory extends CharacterFactory{
 			weapon = new TvRemote();
 			classTemp = new CouchPotatoe(classTemp, weapon);
 		}
-		else if(rClass == zombie) {
+		else {
 			weapon = new Bite();
 			classTemp = new Zombie(classTemp, weapon);
 		}
-		else {
-			System.err.println("Random number generator not working rolled: " + rClass);
-		}
-		
 		return classTemp;
-	}
+	}//end makeClass
 
 	private Scanner readFile() throws FileNotFoundException {
 		return new Scanner(new File("name.txt"));
-	}
+	}//end readFile
 	
 	private void fillNames() {
 		Scanner reader = null;
@@ -124,10 +121,10 @@ public class BadCharacterFactory extends CharacterFactory{
 			names.add(reader.nextLine());
 		}
 		reader.close();
-	}
+	}//end fillNames
 
 	private String randName() {
 		int index = this.rg.nextInt(this.names.size());
 		return this.names.get(index);
-	}
+	}//end randName
 }

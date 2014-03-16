@@ -18,5 +18,5 @@ public class Crossbow implements IWeaponBehavior {
 		
 		System.out.println("Shoots crossbow and deals " + attackRange + " points of damage.");
 		return attackRange;
-	}
+	}//end attack
 }

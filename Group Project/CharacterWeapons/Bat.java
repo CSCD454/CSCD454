@@ -18,5 +18,5 @@ public class Bat implements IWeaponBehavior {
 		
 		System.out.println("Swings Bat and deals " + attackRange + " points of damage.");
 		return attackRange;
-	}
+	}//end attack
 }

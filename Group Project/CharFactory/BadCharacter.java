@@ -7,6 +7,7 @@ public class BadCharacter extends Character {
 	private ArrayList lootTable;	//TODO: set arraylist type
 	
 	public BadCharacter(String name) {
-		super.setName(name);
+		super();
+		setName(name);
 	}
 }

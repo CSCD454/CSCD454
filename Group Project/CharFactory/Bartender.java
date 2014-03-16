@@ -11,21 +11,21 @@ public class Bartender extends CharacterClassDecorator {
 		setCName("Bartender");
 		setWeapons(weapon);
 		setHP(this.character.getHP() + 5);
-		setRName(this.character.getRaceName());
+		setRName(this.character.getRaceName());	//For some reason the race name kept getting hidden.
 	}
 
 	@Override
 	public int getInit() {
 		return (character.getInit() + 2);
-	}
+	}//end getInit
 
 	@Override
 	public String getName() {
 		return character.getName();
-	}
+	}//end getName
 
 	@Override
 	public int getInfection() {
-		return -1;
-	}
+		return this.infection;
+	}//end getInfection
 }

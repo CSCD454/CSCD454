@@ -18,5 +18,5 @@ public class BottleWhiskey implements IWeaponBehavior {
 		
 		System.out.println("Swings Bottle of Whiskey and deals " + attackRange + " points of damage.");
 		return attackRange;
-	}
+	}//end attack
 }
