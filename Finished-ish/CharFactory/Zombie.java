@@ -11,6 +11,7 @@ public class Zombie extends CharacterClassDecorator {
 		setHP(this.character.getHP() - 10);
 		setRName(this.character.getRaceName());	//For some reason the race name kept getting hidden.
 		setMaxHP();
+		isZombie = true;
 	}
 
 	@Override
