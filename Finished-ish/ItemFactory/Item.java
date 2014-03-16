@@ -3,8 +3,8 @@ package ItemFactory;
 public abstract class Item {
 	
 	protected int healAmount;
-	public String itemName;
-	public String description;
+	protected String itemName;
+	protected String description;
 	
 	protected Item() {
 		

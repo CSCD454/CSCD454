@@ -7,8 +7,8 @@ public class Food extends Item {
 	{
 		super();
 		itemName = "Food";
-		healAmount = 7;
-		description = "This food will give you 7 HP back.";
+		healAmount = 25;
+		description = "This food will give you 25 HP back.";
 	}
 
 }

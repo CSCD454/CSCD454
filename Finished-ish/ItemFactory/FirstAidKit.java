@@ -7,7 +7,7 @@ public class FirstAidKit extends Item {
 		{
 			super();
 			itemName = "First Aid Kit";
-			healAmount = 10;
-			description = "This first aid kit contains medicine and bandages. It will give you 10 HP back.";
+			healAmount = 50;
+			description = "This first aid kit contains medicine and bandages. It will give you 50 HP back.";
 		}
 }

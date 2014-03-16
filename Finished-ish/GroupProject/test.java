@@ -1,8 +1,5 @@
 package GroupProject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
@@ -15,7 +12,6 @@ public class test {
 		Game walkingDead = new Game();
 		
 		heroList = walkingDead.Initialize();
-		//will need to change once we add in more characters
 		CharFactory.Character character = heroList.get(0);
 		walkingDead.Move(character);
 		while (walkingDead.state != walkingDead.overgame)

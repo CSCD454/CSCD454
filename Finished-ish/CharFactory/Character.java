@@ -8,9 +8,11 @@ public abstract class Character {
 	
 	IWeaponBehavior weapon;
 	public boolean isGood = false;
+	public boolean isZombie = false;
+	protected int infection = 0;
 	private String name = "null";
 	private String className = "Classless", raceName = "Raceless";
-	private int hp = 50, init = 1;
+	private int hp = 50, init = 1, maxHP;
 	private ArrayList<ItemFactory.Item> inventory = new ArrayList<ItemFactory.Item>(10);	
 	private ArrayList<CharacterWeapons.IWeaponBehavior> weapons = new ArrayList<CharacterWeapons.IWeaponBehavior>(3);
 	
@@ -21,6 +23,14 @@ public abstract class Character {
 	public String getCName() {
 		return this.className;
 	}//end getCName
+	
+	public void setMaxHP() {
+		this.maxHP = this.hp;
+	}//end setMaxHP
+	
+	public int getMaxHp() {
+		return this.maxHP;
+	}//end getMaxHp
 	
 	public void setCName(String name) {
 		this.className = name;
@@ -78,4 +88,12 @@ public abstract class Character {
 		this.weapons.add(weapon);
 		//weapon.weaponName();	//was printing at monster creation as monster creation calls setweapon
 	}//end setWeapons
+	
+	public int getInfection() {
+		return this.infection;
+	}
+	
+	public void setInfection(int infect) {
+		this.infection = infect;
+	}
 }

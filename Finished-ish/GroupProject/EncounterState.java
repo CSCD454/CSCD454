@@ -105,6 +105,13 @@ public class EncounterState implements GameState {
 	private void characterAction(ArrayList<Character> fightList, int turn)
 	{
 		int moveChoice = getUserAction();
+		
+		if(fightList.get(turn).getInfection() > 0)
+		{
+			System.out.println("You have a high fever.");	
+			fightList.get(turn).setHP(fightList.get(turn).getHP() - fightList.get(turn).getInfection());
+		}
+
 	    if (moveChoice == 1)
 	    {
 	    	if (fightList.get(turn).getInventory().size() == 0)
@@ -194,6 +201,13 @@ public class EncounterState implements GameState {
 				int temp = fightList.get(y).getHP();
 				fightList.get(y).setHP(temp - x);
 				System.out.println("Your new HP is " + fightList.get(y).getHP());
+				
+				if(fightList.get(turn).isZombie && x >=7)
+				{
+					fightList.get(y).setInfection(fightList.get(y).getInfection() + x);
+				}
+
+				
 				if (fightList.get(y).getHP() <= 0)
 				{
 					game.setState(game.getGameOverState());
@@ -224,7 +238,12 @@ public class EncounterState implements GameState {
     	int curHP = fightList.get(turn).getHP();
     	int tempHeal = tempItem.getHealAmount();
 
-    	fightList.get(turn).setHP(curHP + tempHeal);
+    	if(tempHeal + fightList.get(turn).getHP() > fightList.get(turn).getMaxHp()) {
+    		fightList.get(turn).setHP(fightList.get(turn).getMaxHp());
+    	}
+    	else {
+    		fightList.get(turn).setHP(curHP + tempHeal);
+    	}
     	
     	fightList.get(turn).getInventory().remove(tempItem);
     	System.out.println("Your new HP is " + fightList.get(turn).getHP());
@@ -235,7 +254,7 @@ public class EncounterState implements GameState {
 		System.out.println("These are the items you have - ");
 		for (int i = 0; i < fightList.get(turn).getInventory().size(); i++)
 		{
-			System.out.println("(" + i + ") " + fightList.get(turn).getInventory().get(i).itemName);
+			System.out.println("(" + i + ") " + fightList.get(turn).getInventory().get(i).getItemName());
 		}
 	}//end printInventory
 	

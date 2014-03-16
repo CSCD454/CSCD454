@@ -66,7 +66,7 @@ public class MapMaker {
 
 		return loc;
 	}//end findLocation
-	
+
 	public void printMap() {
 		for(int i = 0; i < size; i++) {
 			for(int x = 0; x < size; x++) {
@@ -74,6 +74,7 @@ public class MapMaker {
 			}
 			System.out.println();
 		}
+		System.out.println("\nLegend\n1 - Current location\n2 - Visited\n4 - End");
 	}//end printMap
 
 	public boolean checkWin(int[] loc) {

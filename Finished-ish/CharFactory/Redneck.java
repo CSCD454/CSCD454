@@ -3,8 +3,6 @@ package CharFactory;
 import CharacterWeapons.IWeaponBehavior;
 
 public class Redneck extends CharacterClassDecorator {
-
-	Character character;
 	
 	public Redneck(Character character, IWeaponBehavior weapon) {
 		this.character = character;
@@ -12,6 +10,7 @@ public class Redneck extends CharacterClassDecorator {
 		setWeapons(weapon);
 		setHP(this.character.getHP() + 20);
 		setRName(this.character.getRaceName());	//For some reason the race name kept getting hidden.
+		setMaxHP();
 	}
 
 	@Override
@@ -26,6 +25,6 @@ public class Redneck extends CharacterClassDecorator {
 
 	@Override
 	public int getInfection() {
-		return -1;
+		return this.infection;
 	}//end getInfection
 }

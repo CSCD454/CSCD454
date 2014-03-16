@@ -23,7 +23,7 @@ public class FindWeaponRoom extends Room {
 			printWeapons(character);
 			System.out.println("Would you like to swap a weapon for the crossbow? (Y/N)");
 			String response = "";
-			response = scanner.next();
+			response = scanner.nextLine();
 			if (response.equalsIgnoreCase("y"))
 			{
 				System.out.println("Which weapon would you like to get rid of? ");
@@ -38,7 +38,7 @@ public class FindWeaponRoom extends Room {
 		{
 			System.out.println("Would you like to pick it up? (Y/N) ");
 			String response = "";
-			response = scanner.next();
+			response = scanner.nextLine();
 			if (response.equalsIgnoreCase("y"))
 			{
 				CharacterWeapons.IWeaponBehavior w = parseWeapon();

@@ -1,12 +1,12 @@
 package CharFactory;
 
 public class Female extends CharacterRaceDecorator {
-	Character character;
 	
 	public Female(Character character) {
 		this.character = character;
 		setRName("Female");
-		setHP(this.character.getHP() + 35);
+		setHP(this.character.getHP() + 25);
+		//setMaxHP(this.character.getHP());
 	}
 	
 	@Override
@@ -21,6 +21,6 @@ public class Female extends CharacterRaceDecorator {
 	
 	@Override
 	public int getInfection() {
-		return 4;
+		return this.infection;
 	}//end getInfection
 }

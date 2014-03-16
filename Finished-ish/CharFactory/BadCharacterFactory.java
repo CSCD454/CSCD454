@@ -30,7 +30,7 @@ public class BadCharacterFactory extends CharacterFactory{
 	}
 	
 	protected void randClass() {
-		rClass = (int) (Math.random() * 6 + 1);
+		rClass = (int) (Math.random() * 15 + 1);
 	}//end randClass
 	
 	protected void randRace() {
@@ -96,12 +96,9 @@ public class BadCharacterFactory extends CharacterFactory{
 			weapon = new TvRemote();
 			classTemp = new CouchPotatoe(classTemp, weapon);
 		}
-		else if(rClass == zombie) {
+		else {
 			weapon = new Bite();
 			classTemp = new Zombie(classTemp, weapon);
-		}
-		else {
-			System.err.println("Random number generator not working rolled: " + rClass);
 		}
 		
 		return classTemp;

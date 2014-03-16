@@ -3,8 +3,6 @@ package CharFactory;
 import CharacterWeapons.IWeaponBehavior;
 
 public class Bartender extends CharacterClassDecorator {
-
-	Character character;
 	
 	public Bartender(Character character, IWeaponBehavior weapon) {
 		this.character = character;
@@ -12,6 +10,7 @@ public class Bartender extends CharacterClassDecorator {
 		setWeapons(weapon);
 		setHP(this.character.getHP() + 5);
 		setRName(this.character.getRaceName());	//For some reason the race name kept getting hidden.
+		setMaxHP();
 	}
 
 	@Override
@@ -26,6 +25,7 @@ public class Bartender extends CharacterClassDecorator {
 
 	@Override
 	public int getInfection() {
-		return -1;
+		return this.infection;
 	}//end getInfection
+	
 }

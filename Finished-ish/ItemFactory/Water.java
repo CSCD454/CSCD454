@@ -7,8 +7,8 @@ public class Water extends Item {
 	{
 		super();
 		itemName = "Water";
-		healAmount = 5;
-		description = "This water will give you 5 HP back.";
+		healAmount = 15;
+		description = "This water will give you 15 HP back.";
 	}
 
 }

@@ -4,14 +4,13 @@ import CharacterWeapons.IWeaponBehavior;
 
 public class Zombie extends CharacterClassDecorator {
 
-	Character character;
-
 	public Zombie(Character character, IWeaponBehavior weapon) {
 		this.character = character;
 		setCName("Zombie");
 		setWeapons(weapon);
 		setHP(this.character.getHP() - 10);
 		setRName(this.character.getRaceName());	//For some reason the race name kept getting hidden.
+		setMaxHP();
 	}
 
 	@Override

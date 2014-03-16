@@ -23,7 +23,6 @@ public class BuildMonsterState implements GameState {
 	
 	public ArrayList<Character> BuildMonster()
 	{		
-		//System.out.println("************BUILD MONSTER********");
 		fightList = makeMonster();
 		game.setState(game.getEncounterState());
 		return fightList;

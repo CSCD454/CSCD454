@@ -87,7 +87,7 @@ public class InitializeState implements GameState {
 		System.out.println("Your initial inventory is:");
 		for (int i = 0; i < heroList.get(0).getInventory().size(); i++)
 		{
-			System.out.println(" - " + heroList.get(0).getInventory().get(i).itemName);
+			System.out.println(" - " + heroList.get(0).getInventory().get(i).getItemName());
 		}
 	}//end printInitialGameSetupOne
 	

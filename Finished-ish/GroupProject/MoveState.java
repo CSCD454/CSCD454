@@ -121,7 +121,7 @@ public class MoveState implements GameState
 		location = game.map.findLocation();
 		
 		x = location[0];
-		if(x + 1 > game.map.getSize()) {
+		if(x + 1 >= game.map.getSize()) {
 			System.out.println("Can't move in that direction, too many zombies.");
 			return false;
 		}
@@ -140,7 +140,7 @@ public class MoveState implements GameState
 		location = game.map.findLocation();
 		
 		x = location[1];
-		if(x + 1 > game.map.getSize()) {
+		if(x + 1 >= game.map.getSize()) {
 			System.out.println("Can't move in that direction, too many zombies.");
 			return false;
 		}
