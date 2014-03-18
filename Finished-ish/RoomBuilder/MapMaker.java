@@ -74,7 +74,7 @@ public class MapMaker {
 			}
 			System.out.println();
 		}
-		System.out.println("\nLegend\n1 - Current location\n2 - Visited\n4 - End");
+		System.out.println("\nLegend\n0 - Un-visited\n1 - Current location\n2 - Visited\n4 - End");
 	}//end printMap
 
 	public boolean checkWin(int[] loc) {

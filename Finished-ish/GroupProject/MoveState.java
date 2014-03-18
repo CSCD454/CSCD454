@@ -34,7 +34,7 @@ public class MoveState implements GameState
 		Room room = null;
 		RoomBuilder makeRooms = new Builder();
 
-		checkWin();
+		//checkWin();
 		do {
 			direction = getDirection(scanner);
 
@@ -42,6 +42,8 @@ public class MoveState implements GameState
 
 			valid = canMove(direction, character);
 		}while(!valid);
+		
+		checkWin();
 
 		room = makeRooms.makeRoom(character, game);
 

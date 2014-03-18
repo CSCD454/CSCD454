@@ -14,7 +14,7 @@ public class Book implements IWeaponBehavior {
 		Random rg = new Random();
 		int attackRange;
 		
-		attackRange = rg.nextInt(9 - 3) + 3;
+		attackRange = rg.nextInt(10 - 5) + 10;
 		
 		System.out.println("Swings Book and deals " + attackRange + " points of damage.");
 		return attackRange;

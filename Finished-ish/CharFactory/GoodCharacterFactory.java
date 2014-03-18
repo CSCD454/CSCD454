@@ -9,9 +9,7 @@ import CharacterWeapons.TvRemote;
 
 public class GoodCharacterFactory extends CharacterFactory {
 
-	Character character;
 	private String name;
-	private int rClass, rRace, rWeapon;
 	
 	public GoodCharacterFactory(String name) {
 		super();

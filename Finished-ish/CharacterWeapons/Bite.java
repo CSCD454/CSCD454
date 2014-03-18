@@ -14,7 +14,7 @@ public class Bite implements IWeaponBehavior {
 		Random rg = new Random();
 		int attackRange;
 		
-		attackRange = rg.nextInt(9 - 3) + 3;
+		attackRange = rg.nextInt(10 - 5) + 5;
 		
 		System.out.println("Bite and deals " + attackRange + " points of damage.");
 		return attackRange;

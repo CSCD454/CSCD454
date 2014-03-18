@@ -1,12 +1,11 @@
 package CharFactory;
 
 import java.util.ArrayList;
-
 import CharacterWeapons.IWeaponBehavior;
 
 public abstract class Character {
 	
-	IWeaponBehavior weapon;
+	private IWeaponBehavior weapon;
 	public boolean isGood = false;
 	public boolean isZombie = false;
 	protected int infection = 0;
@@ -14,7 +13,7 @@ public abstract class Character {
 	private String className = "Classless", raceName = "Raceless";
 	private int hp = 50, init = 1, maxHP;
 	private ArrayList<ItemFactory.Item> inventory = new ArrayList<ItemFactory.Item>(10);	
-	private ArrayList<CharacterWeapons.IWeaponBehavior> weapons = new ArrayList<CharacterWeapons.IWeaponBehavior>(3);
+	private ArrayList<IWeaponBehavior> weapons = new ArrayList<IWeaponBehavior>(3);
 	
 	protected Character() {
 		

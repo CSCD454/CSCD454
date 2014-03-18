@@ -108,7 +108,7 @@ public class EncounterState implements GameState {
 		
 		if(fightList.get(turn).getInfection() > 0)
 		{
-			System.out.println("You have a high fever.");	
+			System.out.println("You have a high fever, ther is a high chance you might be infected and lose hp each turn.");	
 			fightList.get(turn).setHP(fightList.get(turn).getHP() - fightList.get(turn).getInfection());
 		}
 
@@ -202,7 +202,7 @@ public class EncounterState implements GameState {
 				fightList.get(y).setHP(temp - x);
 				System.out.println("Your new HP is " + fightList.get(y).getHP());
 				
-				if(fightList.get(turn).isZombie && x >=7)
+				if(fightList.get(turn).isZombie && x >=8)
 				{
 					fightList.get(y).setInfection(fightList.get(y).getInfection() + x);
 				}
